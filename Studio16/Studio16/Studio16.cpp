@@ -2,13 +2,13 @@
 //
 
 #include <iostream>
-//#include "../../SharedCode/TextFile.cpp" 
+#include "../../SharedCode/TextFile.cpp" 
 
 int main()
 {
 	
 	
-	/*TextFile i("test");
+	TextFile i("test");
 	vector<char> x;
 	cout << "created new text file named: " << i.getName() << endl;
 	x.push_back(1);
@@ -21,7 +21,7 @@ int main()
 	cout << "appended another 1 to file. here is what is in the file now" << endl;
 	i.read();
 	cout << "this is size" << endl;
-	i.getSize();*/
+	i.getSize();
 	
 
 
