@@ -2,7 +2,7 @@
 #include "TextFile.h"
 void TextFile::read() {
 	for (int i = 0; i < contents.size(); ++i) {
-		std::cout << contents[i] << " " << std::endl;
+		std::cout << contents[i];
 	} 
 }
 unsigned TextFile::getSize() {

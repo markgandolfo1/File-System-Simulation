@@ -2,26 +2,27 @@
 //
 
 #include <iostream>
-#include "../../SharedCode/TextFile.cpp" 
+#include "../../SharedCode/TextFile.h"
+
 
 int main()
 {
 	
 	
 	TextFile i("test");
+	AbstractFile* a = &i;
 	vector<char> x;
-	cout << "created new text file named: " << i.getName() << endl;
-	x.push_back(1);
-	i.write(x);
-	cout << "added '1' to file. here is what is in the file now" << endl;
-	i.read();
-	cout << "this is size" << endl;
-	i.getSize();
-	i.append(x);
-	cout << "appended another 1 to file. here is what is in the file now" << endl;
-	i.read();
-	cout << "this is size" << endl;
-	i.getSize();
+	cout << "created new text file named: " << a->getName() << endl;
+	x.push_back('x');
+	a->write(x);
+	cout << "added 'x' to file. here is what is in the file now" << endl;
+	a->read();
+	cout << "this is size: " << a->getSize()<< endl;
+	
+	a->append(x);
+	cout << "appended another x to file. here is what is in the file now" << endl;
+	a->read();
+	cout << "this is size: " <<a->getSize() << endl;
 	
 
 
