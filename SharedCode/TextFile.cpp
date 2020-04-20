@@ -1,21 +1,21 @@
 //  Define the TextFile class here
 #include "TextFile.h"
-virtual void TextFile::read() {
+void TextFile::read() {
 	for (int i = 0; i < contents.size(); ++i) {
-		cout << contents[i] << " " << endl;
-	}
+		std::cout << contents[i] << " " << std::endl;
+	} 
 }
-virtual unsigned TextFile::getSize() {
-	return contents.getSize();
+unsigned TextFile::getSize() {
+	return contents.size();
 }
-virtual std::string TextFile::getName{
+std::string TextFile::getName(){
 	return name;
 }
-virtual int TexFile::write(std::vector<char> i) {
+int TextFile::write(std::vector<char> i) {
 	contents = i;
 	return 0;
 }
-virtual int TextFile::append(std::vector<char> i) {
+int TextFile::append(std::vector<char> i) {
 	for (int x = 0; x < i.size(); ++x) {
 		contents.push_back(i[x]);
 	}

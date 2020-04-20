@@ -1,4 +1,10 @@
-#pragma once
+//#pragma once
+#ifndef _ABSTRACT_FILE_H_
+#define _ABSTRACT_FILE_H_
+
+//code here
+
+
 // TextFile declaration goes here
 #include "AbstractFile.h"
 
@@ -7,7 +13,7 @@ public:
 	TextFile(std::string i) {
 		name = i;
 	}
-	vritual void read();
+	virtual void read();
 	virtual int write(std::vector<char> i);
 	virtual int append(std::vector<char> i);
 	virtual unsigned int getSize();
@@ -16,3 +22,4 @@ private:
 	std::vector<char> contents;
 	std::string name;
 };
+#endif

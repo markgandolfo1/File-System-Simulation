@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 using namespace std;
 class AbstractFile {
 public:
