@@ -2,10 +2,26 @@
 //
 
 #include <iostream>
-
+#include "../../SharedCode/ImageFile.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+	ImageFile i("test");
+	AbstractFile* a = &i;
+	vector<char> x = { 'X', ' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X', '3' };
+	cout << "created new text file named: " << a->getName() << endl;
+	
+	a->write(x);
+	cout << "added image to file. here is what is in the file now" << endl;
+	a->read();
+	cout << "this is size: " << a->getSize() << endl;
+
+	
+	cout << "When appending item, should return 2 indicating it is an invalid function: " << a->append(x)<< endl;
+	cout << "Trying to write vector that isnt formated right" << endl;
+	vector<char> y = { 'j', 'u', 'l', 'i', 'a', 'n', 'X', ' ', 'X', '3' };
+	a->write(y);
+	cout << "this is size: " << a->getSize() << endl;
+   
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

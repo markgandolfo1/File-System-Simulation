@@ -11,8 +11,10 @@ public:
 	virtual string getName();
 	virtual int write(std::vector<char> i);
 	virtual  int append(std::vector<char> i);
+	virtual void read();
 private:
 	string name;
 	vector<char> contents;
 	char size;
 };
+enum return_val{success, fail, notsupported};

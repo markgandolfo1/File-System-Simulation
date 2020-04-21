@@ -154,118 +154,118 @@ namespace UnitTest
 			Assert::AreEqual(count, 5);
 		}
 	};
-	TEST_CLASS(simpleFileSystem)
-	{
-	public:
-
-		TEST_METHOD(createFileValid) // creates a valid (unused) file and expects 0 (success) as a return value
-		{
-			SimpleFileSystem sfs;
-			Assert::AreEqual(sfs.createFile("FileName.img"), 0);
-			Assert::AreEqual(sfs.createFile("FileName.txt"), 0);
-		}
-		TEST_METHOD(createFileAlreadyExists) // creates a file that has already been created, expects a non-zero return value
-		{
-			SimpleFileSystem sfs;
-			Assert::AreEqual(sfs.createFile("FileName.img"), 0);
-			Assert::AreNotEqual(sfs.createFile("FileName.img"), 0); // accepts any non-zero value
-		}
-		TEST_METHOD(createUnknownExtension) // creates a file with an unknown extension, expects a non-zero return value
-		{
-			SimpleFileSystem sfs;
-			Assert::AreNotEqual(sfs.createFile("FileName.bla"), 0);
-		}
-		TEST_METHOD(addValid) // adds two different files to the system, expects success as return value both times
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			TextFile* txt = new TextFile("FileName.txt");
-			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
-			Assert::AreEqual(sfs.addFile(txt->getName(), txt), 0);
-		}
-		TEST_METHOD(addNullFile) // adds a nullptr to the filesystem, expects a non-zero return value
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = nullptr;
-			Assert::AreNotEqual(sfs.addFile("FileName.img", img), 0);
-		}
-		TEST_METHOD(addFileAlreadyExists) // adds the same file twice, the first time should return success, the second time should return a non-zero value
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
-			Assert::AreNotEqual(sfs.addFile(img->getName(), img), 0);
-		}
-		TEST_METHOD(deleteValid) // deletes a valid file (a file that exists and is not open), expects 0 as a return value
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
-			Assert::AreEqual(sfs.deleteFile(img->getName()), 0);
-		}
-		TEST_METHOD(deleteFileDoesNotExist) // deletes a file that has not been added, expects a non-zero return value
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			Assert::AreNotEqual(sfs.deleteFile(img->getName()), 0);
-		}
-		TEST_METHOD(openValid) //  opens a valid file that exists and is not already open -- checked using add and create methods
-		{
-			SimpleFileSystem sfs;
-			// check using add -- expect to see the same file returned
-			AbstractFile* img = new ImageFile("FileName.img");
-			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
-			AbstractFile* res1 = sfs.openFile(img->getName());
-			bool sameAddress = &(*img) == &(*res1);
-			Assert::IsTrue(sameAddress);
-
-			// check using create -- a quick check to see that create adds successfully and open finds the file by returning a pointer that  is not null
-			Assert::AreEqual(sfs.createFile("FileName.txt"), 0);
-			AbstractFile* res2 = sfs.openFile("FileName.txt");
-			bool nullCheck = res2 == nullptr;
-			Assert::IsFalse(nullCheck);
-		}
-		TEST_METHOD(openFileNotAdded) // opens a file that has not been added, expects a null pointer
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			AbstractFile* res1 = sfs.openFile(img->getName());
-			bool isNull = res1 == nullptr;
-			Assert::IsTrue(isNull);
-		}
-		TEST_METHOD(openAlreadyOpenedFile) // opens a file twice, the first time should return the same file, the second time should return nullptr
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
-			AbstractFile* firstOpen = sfs.openFile(img->getName());
-			bool sameAddress = &(*img) == &(*firstOpen);
-			Assert::IsTrue(sameAddress);
-			AbstractFile* secondOpen = sfs.openFile(img->getName());
-			bool isNull = secondOpen == nullptr;
-			Assert::IsTrue(isNull);
-		}
-		TEST_METHOD(closeValid) // closes a file that has been added and opened, expect success
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			sfs.addFile(img->getName(), img);
-			sfs.openFile(img->getName());
-			int res1 = sfs.closeFile(img);
-			Assert::AreEqual(res1, 0);
-		}
-		TEST_METHOD(closeNotOpen) // closes a file that has been added but not opened, expects a non-zero return value
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
-			Assert::AreNotEqual(sfs.closeFile(img), 0);
-		}
-		TEST_METHOD(closeNotAdded) // closes a file that has not been added or opened, expects a non-zero return value
-		{
-			SimpleFileSystem sfs;
-			ImageFile* img = new ImageFile("FileName.img");
-			Assert::AreNotEqual(sfs.closeFile(img), 0);
-		}
-	};
+//	TEST_CLASS(simpleFileSystem)
+//	{
+//	public:
+//
+//		TEST_METHOD(createFileValid) // creates a valid (unused) file and expects 0 (success) as a return value
+//		{
+//			SimpleFileSystem sfs;
+//			Assert::AreEqual(sfs.createFile("FileName.img"), 0);
+//			Assert::AreEqual(sfs.createFile("FileName.txt"), 0);
+//		}
+//		TEST_METHOD(createFileAlreadyExists) // creates a file that has already been created, expects a non-zero return value
+//		{
+//			SimpleFileSystem sfs;
+//			Assert::AreEqual(sfs.createFile("FileName.img"), 0);
+//			Assert::AreNotEqual(sfs.createFile("FileName.img"), 0); // accepts any non-zero value
+//		}
+//		TEST_METHOD(createUnknownExtension) // creates a file with an unknown extension, expects a non-zero return value
+//		{
+//			SimpleFileSystem sfs;
+//			Assert::AreNotEqual(sfs.createFile("FileName.bla"), 0);
+//		}
+//		TEST_METHOD(addValid) // adds two different files to the system, expects success as return value both times
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			TextFile* txt = new TextFile("FileName.txt");
+//			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
+//			Assert::AreEqual(sfs.addFile(txt->getName(), txt), 0);
+//		}
+//		TEST_METHOD(addNullFile) // adds a nullptr to the filesystem, expects a non-zero return value
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = nullptr;
+//			Assert::AreNotEqual(sfs.addFile("FileName.img", img), 0);
+//		}
+//		TEST_METHOD(addFileAlreadyExists) // adds the same file twice, the first time should return success, the second time should return a non-zero value
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
+//			Assert::AreNotEqual(sfs.addFile(img->getName(), img), 0);
+//		}
+//		TEST_METHOD(deleteValid) // deletes a valid file (a file that exists and is not open), expects 0 as a return value
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
+//			Assert::AreEqual(sfs.deleteFile(img->getName()), 0);
+//		}
+//		TEST_METHOD(deleteFileDoesNotExist) // deletes a file that has not been added, expects a non-zero return value
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			Assert::AreNotEqual(sfs.deleteFile(img->getName()), 0);
+//		}
+//		TEST_METHOD(openValid) //  opens a valid file that exists and is not already open -- checked using add and create methods
+//		{
+//			SimpleFileSystem sfs;
+//			// check using add -- expect to see the same file returned
+//			AbstractFile* img = new ImageFile("FileName.img");
+//			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
+//			AbstractFile* res1 = sfs.openFile(img->getName());
+//			bool sameAddress = &(*img) == &(*res1);
+//			Assert::IsTrue(sameAddress);
+//
+//			// check using create -- a quick check to see that create adds successfully and open finds the file by returning a pointer that  is not null
+//			Assert::AreEqual(sfs.createFile("FileName.txt"), 0);
+//			AbstractFile* res2 = sfs.openFile("FileName.txt");
+//			bool nullCheck = res2 == nullptr;
+//			Assert::IsFalse(nullCheck);
+//		}
+//		TEST_METHOD(openFileNotAdded) // opens a file that has not been added, expects a null pointer
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			AbstractFile* res1 = sfs.openFile(img->getName());
+//			bool isNull = res1 == nullptr;
+//			Assert::IsTrue(isNull);
+//		}
+//		TEST_METHOD(openAlreadyOpenedFile) // opens a file twice, the first time should return the same file, the second time should return nullptr
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
+//			AbstractFile* firstOpen = sfs.openFile(img->getName());
+//			bool sameAddress = &(*img) == &(*firstOpen);
+//			Assert::IsTrue(sameAddress);
+//			AbstractFile* secondOpen = sfs.openFile(img->getName());
+//			bool isNull = secondOpen == nullptr;
+//			Assert::IsTrue(isNull);
+//		}
+//		TEST_METHOD(closeValid) // closes a file that has been added and opened, expect success
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			sfs.addFile(img->getName(), img);
+//			sfs.openFile(img->getName());
+//			int res1 = sfs.closeFile(img);
+//			Assert::AreEqual(res1, 0);
+//		}
+//		TEST_METHOD(closeNotOpen) // closes a file that has been added but not opened, expects a non-zero return value
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			Assert::AreEqual(sfs.addFile(img->getName(), img), 0);
+//			Assert::AreNotEqual(sfs.closeFile(img), 0);
+//		}
+//		TEST_METHOD(closeNotAdded) // closes a file that has not been added or opened, expects a non-zero return value
+//		{
+//			SimpleFileSystem sfs;
+//			ImageFile* img = new ImageFile("FileName.img");
+//			Assert::AreNotEqual(sfs.closeFile(img), 0);
+//		}
+//	};
 }
