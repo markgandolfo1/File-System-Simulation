@@ -20,3 +20,8 @@ this is size: 0"
 3. the benefits are that programming to an interface allows for more of a flexibility, because the implementation of the functions that 
 the interface uses can be changed as it needs to be. For example, as things change in the future, you will still be able to use the interface
 and you just have to change how the client uses it. 
+
+
+4. in order to create a new type of file, all that would have to be done is in the create file function add more if statements to see 
+if it matches the new file type extension, and then construct the new file and add it to the map like the others. You would also need to include 
+the new .h file in the SimpleFileSystem.h file for this to work. 

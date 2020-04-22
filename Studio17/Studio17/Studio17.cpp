@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "../../SharedCode/ImageFile.h"
+#include "../../SharedCode/TextFile.h"
+#include "../../SharedCode/SimpleFileSystem.h"
 int main()
 {
 	ImageFile i("test");
@@ -21,8 +23,28 @@ int main()
 	vector<char> y = { 'j', 'u', 'l', 'i', 'a', 'n', 'X', ' ', 'X', '3' };
 	a->write(y);
 	cout << "this is size: " << a->getSize() << endl;
-   
+
+	SimpleFileSystem sfs;
+	AbstractFile* img1 = new ImageFile("1.img");
+	//AbstractFile* img2 = new ImageFile("2.img");
+	AbstractFile* txt1 = new TextFile("1.txt");
+	sfs.addFile(img1->getName(), img1);
+	sfs.addFile(txt1->getName(), txt1);
+	sfs.createFile("2.img");
+	sfs.createFile("2.txt");
+	sfs.openFile("1.txt");
+	vector<char> z = { 't', 'e', 's', 't' };
+	txt1->write(z);
+	cout << "wrote in text file: " << endl;
+	txt1->read();
+	sfs.deleteFile("1.txt");
+	cout << "Trying to read file after deletion: " << endl;
+	txt1->read();
+
+
+
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
