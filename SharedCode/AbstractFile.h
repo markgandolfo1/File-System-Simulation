@@ -12,6 +12,8 @@ public:
 	virtual int append(std::vector<char> i) = 0;
 	virtual unsigned int getSize() = 0;
 	virtual std::string getName() = 0;
+	virtual ~AbstractFile() = default;
 
 
 };
+enum return_vals { success, exists, invalid, notopen, nonexist, open, notsupported};

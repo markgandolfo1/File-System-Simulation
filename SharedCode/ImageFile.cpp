@@ -23,19 +23,19 @@ int ImageFile::write(std::vector<char> i) {
 		}
 	}
 	if (fail == false) {
-		return return_val::success;
+		return return_vals::success;
 	}
 	else {
 		contents.clear();
 		size = 0;
-		return return_val::fail;
+		return return_vals::invalid;
 	}
 
 
 
 }
 int ImageFile::append(std::vector<char> i) {
-	return return_val::notsupported;
+	return return_vals::notsupported;
 }
 
 void ImageFile::read() {

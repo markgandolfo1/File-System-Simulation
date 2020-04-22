@@ -17,4 +17,3 @@ private:
 	vector<char> contents;
 	char size;
 };
-enum return_val{success, fail, notsupported};
