@@ -3,6 +3,9 @@
 //class TextFile;
 //class ImageFile;
 #include "AbstractFileVisitor.h"
+#include "TextFile.h"
+#include "ImageFile.h"
+#include <vector>
 using namespace std;
 
 class BasicDisplayVisitor : public AbstractFileVisitor {

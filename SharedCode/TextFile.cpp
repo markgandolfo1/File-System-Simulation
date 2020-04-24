@@ -1,13 +1,13 @@
 //  Define the TextFile class here
 #include "TextFile.h"
-#include "AbstractFileVisitor.h"
+//#include "AbstractFileVisitor.h"
 vector<char> TextFile::read() {
 	return contents;
 	//for (int i = 0; i < contents.size(); ++i) {
 	//	std::cout << contents[i];
 	//} 
 }
-unsigned TextFile::getSize() {
+unsigned int TextFile::getSize() {
 	return contents.size();
 }
 std::string TextFile::getName(){

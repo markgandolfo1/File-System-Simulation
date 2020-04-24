@@ -1,8 +1,9 @@
 // definitions of basic display visitor here
 #include "BasicDisplayVisitor.h"
-#include "TextFile.h"
-#include "ImageFile.h"
-#include "AbstractFile.h"
+
+//#include "TextFile.h"
+//#include "ImageFile.h"
+//#include "AbstractFile.h"
 using namespace std;
 
 void BasicDisplayVisitor::visit_TextFile(TextFile* tf) {

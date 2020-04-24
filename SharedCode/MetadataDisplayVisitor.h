@@ -1,6 +1,8 @@
 #pragma once
 // declaration of MetadataDisplayVisitor here
 #include "AbstractFileVisitor.h"
+#include "TextFile.h"
+#include "ImageFile.h"
 using namespace std;
 
 class MetadataDisplayVisitor : public AbstractFileVisitor {

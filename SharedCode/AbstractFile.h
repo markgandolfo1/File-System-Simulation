@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-class AbstractFileVisitor;
+#include "AbstractFileVisitor.h"
 
 using namespace std;
 class AbstractFile {

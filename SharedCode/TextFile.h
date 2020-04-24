@@ -1,6 +1,6 @@
-//#pragma once
-#ifndef _ABSTRACT_FILE_H_
-#define _ABSTRACT_FILE_H_
+#pragma once
+//#ifndef _ABSTRACT_FILE_H_
+//#define _ABSTRACT_FILE_H_
 
 //code here
 
@@ -23,4 +23,4 @@ private:
 	std::vector<char> contents;
 	std::string name;
 };
-#endif
+//#endif

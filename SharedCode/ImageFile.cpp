@@ -1,8 +1,8 @@
 // definition of ImageFile class here
 #include "ImageFile.h"
-#include "AbstractFileVisitor.h"
+//#include "AbstractFileVisitor.h"
 
-unsigned ImageFile::getSize() {
+unsigned int ImageFile::getSize() {
 	return contents.size();
 }
 string ImageFile::getName() {

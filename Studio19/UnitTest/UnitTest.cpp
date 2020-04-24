@@ -50,7 +50,7 @@ namespace UnitTest
 			std::vector<char> v = { 'h', 'i' };
 			Assert::AreEqual(t.write(v), 0);
 			std::vector<char> contents = t.read();
-			Assert::AreEqual(t.getSize(), v.size());
+			Assert::AreEqual(t.getSize(), (unsigned int) v.size());
 			Assert::AreEqual(contents.size(), v.size());
 			for (size_t i = 0; i < contents.size(); ++i) {
 				Assert::AreEqual(v[i], contents[i]);
