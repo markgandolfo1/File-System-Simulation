@@ -5,6 +5,7 @@
 unsigned int ImageFile::getSize() {
 	return contents.size();
 }
+
 string ImageFile::getName() {
 	return name;
 }
