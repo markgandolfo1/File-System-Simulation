@@ -3,6 +3,7 @@
 
 #include "TextFile.h"
 #include "ImageFile.h"
+
 using namespace std;
 
 class AbstractFileVisitor {
