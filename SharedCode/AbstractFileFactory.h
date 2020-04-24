@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 #include "AbstractFile.h"
-using namespace std;
 
 
 class AbstractFileFactory {

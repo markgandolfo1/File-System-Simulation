@@ -7,4 +7,4 @@ class SimpleFileFactory : public AbstractFileFactory {
 public:
 	virtual AbstractFile* createFile(string);
 
-}
+};
