@@ -4,16 +4,17 @@
 #include <vector>
 #include <string>
 #include <iostream>
+class AbstractFileVisitor;
+
 using namespace std;
 class AbstractFile {
 public:
-	virtual void read() = 0;
+	virtual void accept(AbstractFileVisitor*) = 0;
+	virtual vector<char> read() = 0;
 	virtual int write(std::vector<char> i) = 0;
 	virtual int append(std::vector<char> i) = 0;
 	virtual unsigned int getSize() = 0;
 	virtual std::string getName() = 0;
 	virtual ~AbstractFile() = default;
-
-
 };
 enum return_vals { success, exists, invalid, notopen, nonexist, open, notsupported};

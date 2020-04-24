@@ -10,8 +10,10 @@ public:
 	virtual unsigned getSize();
 	virtual string getName();
 	virtual int write(std::vector<char> i);
-	virtual  int append(std::vector<char> i);
-	virtual void read();
+	virtual int append(std::vector<char> i);
+	virtual vector<char> read();
+	virtual void accept(AbstractFileVisitor*);
+
 private:
 	string name;
 	vector<char> contents;

@@ -1,9 +1,11 @@
 //  Define the TextFile class here
 #include "TextFile.h"
-void TextFile::read() {
-	for (int i = 0; i < contents.size(); ++i) {
-		std::cout << contents[i];
-	} 
+#include "AbstractFileVisitor.h"
+vector<char> TextFile::read() {
+	return contents;
+	//for (int i = 0; i < contents.size(); ++i) {
+	//	std::cout << contents[i];
+	//} 
 }
 unsigned TextFile::getSize() {
 	return contents.size();
@@ -20,5 +22,9 @@ int TextFile::append(std::vector<char> i) {
 		contents.push_back(i[x]);
 	}
 	return 0;
+}
+
+void TextFile::accept(AbstractFileVisitor* afv) {
+	(afv)->visit_TextFile(this);
 }
 

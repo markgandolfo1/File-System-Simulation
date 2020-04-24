@@ -13,11 +13,12 @@ public:
 	TextFile(std::string i) {
 		name = i;
 	}
-	virtual void read();
+	virtual vector<char> read();
 	virtual int write(std::vector<char> i);
 	virtual int append(std::vector<char> i);
 	virtual unsigned int getSize();
 	virtual std::string getName();
+	virtual void accept(AbstractFileVisitor*);
 private:
 	std::vector<char> contents;
 	std::string name;
