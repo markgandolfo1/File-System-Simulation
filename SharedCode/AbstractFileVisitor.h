@@ -1,8 +1,11 @@
 #pragma once
 // declaration of the file visitor interface here
 
-#include "TextFile.h"
-#include "ImageFile.h"
+//#include "TextFile.h"
+//#include "ImageFile.h"
+class TextFile;
+class ImageFile;
+#include <iostream>
 
 using namespace std;
 
