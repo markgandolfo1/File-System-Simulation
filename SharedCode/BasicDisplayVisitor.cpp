@@ -17,12 +17,19 @@ void BasicDisplayVisitor::visit_ImageFile(ImageFile* imf) {
 	int dim = imf->getSize();
 	vector<char> conts = imf->read();
 
-	for (unsigned j = dim - 1; j < dim; j--) {
-	//unsigned int will go to highest value if passed 0.
-		for (unsigned i = 0; i <= dim - 1; i++) {
-			int index = (j * dim) + i;
-			cout << conts[index];
+	for (unsigned int row = dim - 1; row >= 0; row--) {
+		for (unsigned int col = 0; col <= dim - 1; col++) {
+			int pos = dim * row + col;
+			cout << conts[pos];
 		}
-	cout << " " << endl;
+		cout << endl;
 	}
+
+	//for (unsigned j = dim - 1; j < dim; j--) {
+	//	for (unsigned i = 0; i <= dim - 1; i++) {
+	//		int index = (j * dim) + i;
+	//		cout << conts[index];
+	//	}
+	//cout << " " << endl;
+	//}
 }
