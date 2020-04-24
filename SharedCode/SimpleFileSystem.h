@@ -9,7 +9,6 @@ using namespace std;
 class SimpleFileSystem: public AbstractFileSystem{
 public:
 	virtual int addFile(string s, AbstractFile* f);
-	virtual int createFile(std::string s);
 	virtual AbstractFile* openFile(std::string s);
 	virtual int closeFile(AbstractFile* f);
 	virtual int deleteFile(std::string s);

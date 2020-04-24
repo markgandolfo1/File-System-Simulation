@@ -7,7 +7,6 @@
 class AbstractFileSystem {
 public:
 	virtual int addFile(std::string s, AbstractFile* f) = 0;
-	virtual int createFile(std::string s) = 0;
 	virtual int deleteFile(std::string s) = 0;
 	virtual AbstractFile* openFile(std::string s) = 0;
 	virtual int closeFile(AbstractFile* f) = 0;

@@ -1,11 +1,26 @@
 // Studio18.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+#include "../../SharedCode/ImageFile.h"
+#include "../../SharedCode/TextFile.h"
+#include "../../SharedCode/SimpleFileSystem.h"
+#include "../../SharedCode/SimpleFileFactory.h"
 #include <iostream>
-
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	AbstractFileSystem* i = new SimpleFileSystem();
+	AbstractFileFactory* j = new SimpleFileFactory();
+	AbstractFile* file = j->createFile("mark.txt");
+	vector<char> x = { 'h', 'i' };
+	file->write(x);
+	i->addFile(file->getName(), file);
+	i->openFile(file->getName());
+	file->read();
+	i->closeFile(file);
+
+
+	
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

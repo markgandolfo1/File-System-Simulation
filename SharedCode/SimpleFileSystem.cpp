@@ -16,29 +16,6 @@ int SimpleFileSystem::addFile(string s, AbstractFile* f) {
 	return return_vals::success;
 	
 }
-int SimpleFileSystem::createFile(std::string s) {
-	auto  e = files.find(s);
-	if (e != files.end()) {
-		return return_vals::exists;
-	}
-	size_t pt = s.find(".");
-	string ext = s.substr(pt + 1, pt + 3);
-	if (ext == "txt") {
-		TextFile i(s);
-		AbstractFile* a = &i;
-		return addFile(s, a);
-
-	}
-	if (ext == "img") {
-		ImageFile i(s);
-		AbstractFile* a = &i;
-		return addFile(s, a);
-	}
-	else {
-		return return_vals::invalid;
-	}
-	
-}
 AbstractFile* SimpleFileSystem::openFile(std::string s) {
 	auto  e = files.find(s);
 	if (e == files.end()) {
