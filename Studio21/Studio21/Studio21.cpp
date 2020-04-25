@@ -2,10 +2,30 @@
 //
 
 #include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
 
 int main()
 {
     std::cout << "Hello World!\n";
+	string input;
+	getline(cin, input);
+	cout << "full input is: " << input << endl;
+	if (input == "q") {
+		cout << "QUITTED" << endl;
+	}
+	istringstream com(input);
+	string first;
+	com >> first;
+	if (first == "help") {
+		cout << "first help" << endl;
+	}
+	string second;
+	com >> second;
+	cout << "second:" << second << endl;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

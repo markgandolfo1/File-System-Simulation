@@ -3,6 +3,7 @@ using namespace std;
 #include <map>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 #include "AbstractCommand.h";
 
