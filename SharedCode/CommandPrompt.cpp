@@ -48,6 +48,7 @@ int CommandPrompt::run() {
 		}
 		else {
 			size_t find = input.find(space);
+			//one word
 			if (find == string::npos) {
 				map<string, AbstractCommand*>::iterator it = commands.find(input);
 				if (it != commands.end()) {
@@ -56,6 +57,13 @@ int CommandPrompt::run() {
 						cout << "Command failed" << endl;
 					}
 				}
+				else {
+					cout << "Command does not exist" << endl;
+				}
+			}
+			//more than one word
+			else {
+
 			}
 		}
 	}
