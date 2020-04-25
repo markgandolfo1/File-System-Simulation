@@ -2,10 +2,27 @@
 //
 
 #include <iostream>
+#include "../../SharedCode/TextFile.h"
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+	TextFile* tf = new TextFile("test");
+	vector<char> ex;
+	ex.push_back('1');
+	tf->append(ex);
+	vector<char> mod = tf->read();
+	for (int i = 0; i < mod.size(); i++) {
+		cout << mod[i] << endl;
+	}
+	mod.push_back('2');
+	tf->write(mod);
+	mod = tf->read();
+	for (int i = 0; i < mod.size(); i++) {
+		cout << mod[i] << endl;
+	}
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
