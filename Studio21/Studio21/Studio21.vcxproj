@@ -148,11 +148,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\SharedCode\CommandPrompt.cpp" />
+    <ClCompile Include="..\..\SharedCode\TouchCommand.cpp" />
     <ClCompile Include="Studio21.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\SharedCode\AbstractCommand.h" />
+    <ClInclude Include="..\..\SharedCode\AbstractFileFactory.h" />
+    <ClInclude Include="..\..\SharedCode\AbstractFileSystem.h" />
     <ClInclude Include="..\..\SharedCode\CommandPrompt.h" />
+    <ClInclude Include="..\..\SharedCode\CommandTest.h" />
+    <ClInclude Include="..\..\SharedCode\TouchCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

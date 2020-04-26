@@ -66,8 +66,8 @@ int CommandPrompt::run() {
 				istringstream com(input);
 				string first;
 				com >> first;
+				string second;
 				if (first == "help") {
-					string second;
 					com >> second;
 					map<string, AbstractCommand*>::iterator it = commands.find(second);
 					if (it != commands.end()) {
@@ -80,7 +80,11 @@ int CommandPrompt::run() {
 				else {
 					map<string, AbstractCommand*>::iterator it = commands.find(first);
 					if (it != commands.end()) {
-						int result = (it->second)->execute("");
+						string ans;
+						while (com >> second) {
+							ans = ans + " " + second;
+						}
+						int result = (it->second)->execute(ans);
 						if (result == error) {
 							cout << "Command failed" << endl;
 						}

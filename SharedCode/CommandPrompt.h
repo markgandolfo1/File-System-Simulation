@@ -1,3 +1,5 @@
+#pragma once
+
 using namespace std;
 
 #include <map>
@@ -11,7 +13,7 @@ class AbstractFileSystem;
 class AbstractFileFactory;
 
 enum mapkeys { insertsuccess = 0, alreadyexists=1 };
-enum returnkeys {success, quit};
+enum returnkeys {quit=1};
 
 class CommandPrompt {
 private:
