@@ -168,6 +168,9 @@
     <ClInclude Include="..\..\SharedCode\TextFile.h" />
     <ClInclude Include="..\..\SharedCode\TouchCommand.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
