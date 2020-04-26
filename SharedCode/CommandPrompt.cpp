@@ -29,8 +29,8 @@ void CommandPrompt::listCommands() {
 }
 
 string CommandPrompt::prompt() {
-	cout << "Enter either a command, 'q' to quit, 'help' to see a list of commands, of 'help' preceding a the name of a command for a description of that command" << endl;
-	cout << "$   ";
+	cout << "Enter a command, 'q' to quit, 'help' to see a list of commands, or 'help' preceding a the name of a command for a description of that command" << endl;
+	cout << "$  ";
 	string input;
 	getline(cin, input);
 	return input;
@@ -81,6 +81,9 @@ int CommandPrompt::run() {
 					map<string, AbstractCommand*>::iterator it = commands.find(first);
 					if (it != commands.end()) {
 						string ans;
+						if (com >> second) {
+							ans = second;
+						}
 						while (com >> second) {
 							ans = ans + " " + second;
 						}

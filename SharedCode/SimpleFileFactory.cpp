@@ -1,6 +1,6 @@
-// studio 18 - simple file factory definitions
+//// studio 18 - simple file factory definitions
 #include "SimpleFileFactory.h"
-
+//
 AbstractFile* SimpleFileFactory::createFile(string s) {
 	
 	size_t pt = s.find(".");
@@ -8,7 +8,6 @@ AbstractFile* SimpleFileFactory::createFile(string s) {
 	if (ext == "txt") {
 		AbstractFile* a = new TextFile(s);
 		return a;
-
 	}
 	if (ext == "img") {
 		AbstractFile* a = new ImageFile(s);

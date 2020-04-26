@@ -6,7 +6,7 @@
 #include "TextFile.h"
 #include "ImageFile.h"
 using namespace std;
-class SimpleFileSystem: public AbstractFileSystem{
+class SimpleFileSystem : public AbstractFileSystem {
 public:
 	virtual int addFile(string s, AbstractFile* f);
 	virtual AbstractFile* openFile(std::string s);

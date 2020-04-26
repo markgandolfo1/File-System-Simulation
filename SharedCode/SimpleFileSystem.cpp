@@ -1,7 +1,7 @@
-// define methods of SimpleFileSystem class here
+//// define methods of SimpleFileSystem class here
 #include "SimpleFileSystem.h"
-
-
+//
+//
 int SimpleFileSystem::addFile(string s, AbstractFile* f) {
 
 	//http://www.cplusplus.com/reference/map/map/find/
@@ -51,5 +51,4 @@ int SimpleFileSystem::deleteFile(std::string s) {
 	files.erase(s);
 	delete f;
 	return return_vals::success;
-
 }
