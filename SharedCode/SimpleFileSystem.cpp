@@ -52,3 +52,11 @@ int SimpleFileSystem::deleteFile(std::string s) {
 	delete f;
 	return return_vals::success;
 }
+
+std::set<string> SimpleFileSystem::getFileNames() {
+	set<string>* names = new set<string>;
+	for (map<string, AbstractFile*>::iterator it = files.begin(); it != files.end(); it++) {
+		names->insert(it->first);
+	}
+	return *names;
+}

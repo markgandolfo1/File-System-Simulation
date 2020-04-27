@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include "AbstractFile.h"
+#include <set>
+#include <map>
 
 enum create {created, couldnotcreate};
 
@@ -12,5 +14,6 @@ public:
 	virtual int deleteFile(std::string s) = 0;
 	virtual AbstractFile* openFile(std::string s) = 0;
 	virtual int closeFile(AbstractFile* f) = 0;
+	virtual std::set<string> getFileNames() = 0;
 };
 

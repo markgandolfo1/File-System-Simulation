@@ -150,6 +150,8 @@
     <ClCompile Include="..\..\SharedCode\CommandPrompt.cpp" />
     <ClCompile Include="..\..\SharedCode\CommandTest.cpp" />
     <ClCompile Include="..\..\SharedCode\ImageFile.cpp" />
+    <ClCompile Include="..\..\SharedCode\LSCommand.cpp" />
+    <ClCompile Include="..\..\SharedCode\MetadataDisplayVisitor.cpp" />
     <ClCompile Include="..\..\SharedCode\SimpleFileFactory.cpp" />
     <ClCompile Include="..\..\SharedCode\SimpleFileSystem.cpp" />
     <ClCompile Include="..\..\SharedCode\TextFile.cpp" />
@@ -158,11 +160,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\SharedCode\AbstractCommand.h" />
+    <ClInclude Include="..\..\SharedCode\AbstractFile.h" />
     <ClInclude Include="..\..\SharedCode\AbstractFileFactory.h" />
     <ClInclude Include="..\..\SharedCode\AbstractFileSystem.h" />
     <ClInclude Include="..\..\SharedCode\CommandPrompt.h" />
     <ClInclude Include="..\..\SharedCode\CommandTest.h" />
     <ClInclude Include="..\..\SharedCode\ImageFile.h" />
+    <ClInclude Include="..\..\SharedCode\LSCommand.h" />
+    <ClInclude Include="..\..\SharedCode\MetadataDisplayVisitor.h" />
     <ClInclude Include="..\..\SharedCode\SimpleFileFactory.h" />
     <ClInclude Include="..\..\SharedCode\SimpleFileSystem.h" />
     <ClInclude Include="..\..\SharedCode\TextFile.h" />

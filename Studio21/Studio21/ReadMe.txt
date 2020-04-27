@@ -13,3 +13,12 @@ aforementioned factory and system. I then added a command called "touch". Within
 successfully quit when I did this. I also tested 'help', which listed the commands successfully (touch). Then, I tested "help touch",
 where it properly printed out a description of the touch command. Finally, I created a file called "hi.txt" using the touch command, 
 and was able to successfuly open the file afterwards.
+
+	SimpleFileSystem* sys = new SimpleFileSystem();
+	SimpleFileFactory* fact = new SimpleFileFactory();
+	TouchCommand* touch = new TouchCommand(sys,fact);
+	CommandPrompt* com = new CommandPrompt();
+	com->setFileSystem(sys);
+	com->setFileFactory(fact);
+	com->addCommand("touch",touch);
+	com->run();
