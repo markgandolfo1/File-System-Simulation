@@ -2,7 +2,8 @@
 //
 
 #include <iostream>
-#include "../../SharedCode/TextFile.h"
+#include "../../SharedCode/BasicDisplayVisitor.h"
+
 using namespace std;
 
 int main()
@@ -23,6 +24,10 @@ int main()
 		cout << mod[i] << endl;
 	}
 
+	ImageFile* img = new ImageFile("imgtest");
+	BasicDisplayVisitor* basic = new BasicDisplayVisitor();
+	tf->accept(basic);
+	img->accept(basic);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
