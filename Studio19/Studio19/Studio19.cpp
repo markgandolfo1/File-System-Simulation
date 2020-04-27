@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../../SharedCode/BasicDisplayVisitor.h"
+#include "../../SharedCode/PasswordProxy.h"
 
 using namespace std;
 
@@ -28,6 +29,13 @@ int main()
 	BasicDisplayVisitor* basic = new BasicDisplayVisitor();
 	tf->accept(basic);
 	img->accept(basic);
+
+	AbstractFile* a = new TextFile("test");
+	PasswordProxy* b = new PasswordProxy(a, "pass");
+	vector<char> i = { 't', 'e', 's', 't' };
+	b->write(i);
+	AbstractFileVisitor* f = new BasicDisplayVisitor();
+	b->accept(f);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

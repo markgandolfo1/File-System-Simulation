@@ -22,3 +22,14 @@ file object's cpp. Additionally, we would have to add a new visit_<file_type> fu
 AbstractFileVisitor class. Hence, a negative consequence of the visitor pattern is that the AbstractFileVisitor could have to support 
 a ton of function, to the point where it s cluttered. When there are a lot of different concrete file types, this pattern would not be a 
 good idea.
+
+
+Studio 20.
+
+2. it is important to delete the files because this could lead to memory leaks which could mean errors when compiling
+3. the tests i preformed created a password proxy and used the proxy to create, writing and displaying files. 
+this was the output:
+"Input a Password: pass
+Input a Password: pass
+test"
+it asks for a password after attempting to write and attempting to display
