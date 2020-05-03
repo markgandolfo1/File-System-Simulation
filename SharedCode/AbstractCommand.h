@@ -2,7 +2,7 @@
 using namespace std;
 #include <string>
 
-enum exkeys {executed, error};
+enum exkeys {executed, error, couldnotopen, commandDNE};
 
 class AbstractCommand {
 public:
