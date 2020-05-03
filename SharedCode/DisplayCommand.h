@@ -3,6 +3,7 @@
 #include "SimpleFileSystem.h"
 #include "SimpleFileFactory.h"
 #include "PasswordProxy.h"
+#include "BasicDisplayVisitor.h"
 #include <sstream>
 class DisplayCommand : public AbstractCommand {
 private:
