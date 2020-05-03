@@ -6,7 +6,7 @@ LSCommand::LSCommand(AbstractFileSystem* a) {
 }
 
 void LSCommand::displayInfo() {
-	cout << "ls is responsible for outputting the names of the files in the file system and can be invoked using this command: ls -m (optional)" << endl;
+	cout << "ls is responsible for outputting the names of the files in the file system and can be invoked using this command: ls [-m]" << endl;
 }
 
 int LSCommand::execute(std::string s) {
