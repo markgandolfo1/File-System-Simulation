@@ -42,7 +42,6 @@ int LSCommand::execute(std::string s) {
 				AbstractFile* af = filesys->openFile(*it);
 				filesys->closeFile(af);
 				af->accept(md);
-				delete af;
 				cout << endl;
 			}
 			delete md;
