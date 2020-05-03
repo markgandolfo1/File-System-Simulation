@@ -13,11 +13,15 @@
 #include "../../SharedCode/RemoveCommand.h"
 #include "../../SharedCode/CatCommand.h"
 #include "../../SharedCode/DisplayCommand.h"
+#include "../../SharedCode/AbstractParsingStrategy.h"
+
 
 using namespace std;
 
 int main()
 {
+	AbstractParsingStrategy* aps = new AbstractParsingStrategy();
+
 	SimpleFileSystem* sys = new SimpleFileSystem();
 	SimpleFileFactory* fact = new SimpleFileFactory();
 	TouchCommand* touch = new TouchCommand(sys, fact);
@@ -35,6 +39,10 @@ int main()
 	com->addCommand("cat", cat);
 	com->addCommand("ds", ds);
 	com->run();
+
+
+
+
 
 	//Studio 19:
 	//TextFile* tf = new TextFile("test");
