@@ -6,7 +6,7 @@ DisplayCommand::DisplayCommand(AbstractFileSystem* a) {
 }
 
 void DisplayCommand::displayInfo() {
-	cout << "display is responsible for creating a file and can be invoked using this command: touch <filename>" << endl;
+	cout << "display is responsible for opening a file and displaying its contents - it can be invoked using this command: ds <filename> [-d]" << endl;
 }
 
 int DisplayCommand::execute(std::string s) {
@@ -17,6 +17,9 @@ int DisplayCommand::execute(std::string s) {
 		if (f != 0) {
 			BasicDisplayVisitor* d = new BasicDisplayVisitor();
 			f->accept(d);
+			filesys->closeFile(f);
+			delete d;
+			cout << endl;
 			return success;
 		}
 		else {
@@ -35,10 +38,11 @@ int DisplayCommand::execute(std::string s) {
 			AbstractFile* f = filesys->openFile(first);
 			if (f != 0) {
 				vector<char> v = f->read();
-				for (int i = 0; i < v.size(); ++i) {
-					cout << v[i];
+				for (char c : v) {
+					cout << c;
 				}
-				cout << " " << endl;
+				cout << endl;
+				filesys->closeFile(f);
 				return success;
 			}
 			else {

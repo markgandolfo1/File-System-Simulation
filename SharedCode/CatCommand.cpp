@@ -80,8 +80,11 @@ int CatCommand::execute(std::string s) {
 				for (int i = 0; i < output.size(); i++) {
 					toappend.push_back(output[i]);
 				}
-				af->append(toappend);
+				int ret = af->append(toappend);
 				filesys->closeFile(af);
+				if (ret != 0) {
+					return ret;
+				}
 			}
 		}
 		else {
