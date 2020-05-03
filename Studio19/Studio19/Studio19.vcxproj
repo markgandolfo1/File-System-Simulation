@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\SharedCode\CommandPrompt.cpp" />
     <ClCompile Include="..\..\SharedCode\CommandTest.cpp" />
     <ClCompile Include="..\..\SharedCode\DirectoryFile.cpp" />
+    <ClCompile Include="..\..\SharedCode\DisplayCommand.cpp" />
     <ClCompile Include="..\..\SharedCode\HierarchicalFileFactory.cpp" />
     <ClCompile Include="..\..\SharedCode\HierarchicalFileSystem.cpp" />
     <ClCompile Include="..\..\SharedCode\ImageFile.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="..\..\SharedCode\CommandPrompt.h" />
     <ClInclude Include="..\..\SharedCode\CommandTest.h" />
     <ClInclude Include="..\..\SharedCode\DirectoryFile.h" />
+    <ClInclude Include="..\..\SharedCode\DisplayCommand.h" />
     <ClInclude Include="..\..\SharedCode\HierarchicalFileFactory.h" />
     <ClInclude Include="..\..\SharedCode\HierarchicalFileSystem.h" />
     <ClInclude Include="..\..\SharedCode\ImageFile.h" />
