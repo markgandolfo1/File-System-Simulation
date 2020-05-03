@@ -40,5 +40,5 @@ int DisplayCommand::execute(std::string s) {
 		else {
 			return couldnotcreate;
 		}
-	
+	}
 }
