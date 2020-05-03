@@ -63,6 +63,9 @@
     <ClCompile Include="..\..\SharedCode\TouchCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\SharedCode\CatCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\SharedCode\AbstractFile.h">
@@ -123,6 +126,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\SharedCode\RemoveCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SharedCode\CatCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

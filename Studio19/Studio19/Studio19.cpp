@@ -11,6 +11,8 @@
 #include "../../SharedCode/CommandPrompt.h"
 #include "../../SharedCode/LSCommand.h"
 #include "../../SharedCode/RemoveCommand.h"
+#include "../../SharedCode/CatCommand.h"
+
 
 using namespace std;
 
@@ -21,12 +23,14 @@ int main()
 	TouchCommand* touch = new TouchCommand(sys, fact);
 	LSCommand* ls = new LSCommand(sys);
 	RemoveCommand* rm = new RemoveCommand(sys);
+	CatCommand* cat = new CatCommand(sys);
 	CommandPrompt* com = new CommandPrompt();
 	com->setFileSystem(sys);
 	com->setFileFactory(fact);
 	com->addCommand("touch", touch);
 	com->addCommand("ls", ls);
 	com->addCommand("rm", rm);
+	com->addCommand("cat", cat);
 	com->run();
 
 	//Studio 19:
