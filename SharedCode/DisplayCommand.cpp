@@ -14,9 +14,16 @@ int DisplayCommand::execute(std::string s) {
 	//one word
 	if (find == string::npos) {
 		AbstractFile* f = filesys->openFile(s);
-		
-		BasicDisplayVisitor* d = new BasicDisplayVisitor();
-		f->accept(d);
+		if (f != 0) {
+			BasicDisplayVisitor* d = new BasicDisplayVisitor();
+			f->accept(d);
+			return success;
+		}
+		else {
+			return couldnotcreate;
+		}
+	
+
 	}
 	else {
 		istringstream ss(s);
