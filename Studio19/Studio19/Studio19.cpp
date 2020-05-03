@@ -10,6 +10,7 @@
 #include "../../SharedCode/TouchCommand.h"
 #include "../../SharedCode/CommandPrompt.h"
 #include "../../SharedCode/LSCommand.h"
+#include "../../SharedCode/RemoveCommand.h"
 
 using namespace std;
 
@@ -19,11 +20,13 @@ int main()
 	SimpleFileFactory* fact = new SimpleFileFactory();
 	TouchCommand* touch = new TouchCommand(sys, fact);
 	LSCommand* ls = new LSCommand(sys);
+	RemoveCommand* rm = new RemoveCommand(sys);
 	CommandPrompt* com = new CommandPrompt();
 	com->setFileSystem(sys);
 	com->setFileFactory(fact);
 	com->addCommand("touch", touch);
 	com->addCommand("ls", ls);
+	com->addCommand("rm", rm);
 	com->run();
 
 	//Studio 19:
