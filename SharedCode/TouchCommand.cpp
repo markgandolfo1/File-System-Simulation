@@ -36,7 +36,7 @@ int TouchCommand::execute(std::string s) {
 		if (second == "-p") {
 			string pass;
 			cout << "Whats the password?" << endl;
-			cin >> pass;
+			getline(cin, pass);
 			AbstractFile* filep = filefact->createFile(first);
 			int r = success;
 			if (filep != 0) {
