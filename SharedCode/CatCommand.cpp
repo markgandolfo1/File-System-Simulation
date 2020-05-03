@@ -1,5 +1,6 @@
 #include "CatCommand.h"
 #include <sstream>
+#include <vector>
 
 CatCommand::CatCommand(AbstractFileSystem* a) {
 	filesys = a;
@@ -27,7 +28,13 @@ int CatCommand::execute(std::string s) {
 		}
 
 		if (input == ":wq") {
-
+			AbstractFile* af = filesys->openFile(s);
+			vector<char> towrite;
+			for (int i = 0; i < output.size(); i++) {
+				towrite.push_back(s[i]);
+			}
+			af->write(towrite);
+			filesys->closeFile(af);
 		}
 	}
 
