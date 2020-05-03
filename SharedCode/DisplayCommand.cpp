@@ -19,7 +19,7 @@ int DisplayCommand::execute(std::string s) {
 			f->accept(d);
 			filesys->closeFile(f);
 			delete d;
-			cout << endl;
+		//	cout << endl;
 			return success;
 		}
 		else {

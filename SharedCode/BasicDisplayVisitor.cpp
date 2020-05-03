@@ -22,6 +22,6 @@ void BasicDisplayVisitor::visit_ImageFile(ImageFile* imf) {
 			int index = (j * dim) + i;
 			cout << conts[index];
 		}
-	cout << " " << endl;
+	cout << endl;
 	}
 }
