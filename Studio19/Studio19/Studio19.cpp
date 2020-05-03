@@ -14,7 +14,7 @@
 #include "../../SharedCode/CatCommand.h"
 #include "../../SharedCode/DisplayCommand.h"
 #include "../../SharedCode/AbstractParsingStrategy.h"
-
+#include "../../SharedCode/CopyCommand.h"
 
 using namespace std;
 
@@ -26,6 +26,7 @@ int main()
 	SimpleFileFactory* fact = new SimpleFileFactory();
 	TouchCommand* touch = new TouchCommand(sys, fact);
 	LSCommand* ls = new LSCommand(sys);
+	CopyCommand* cp = new CopyCommand(sys);
 	RemoveCommand* rm = new RemoveCommand(sys);
 	CatCommand* cat = new CatCommand(sys);
 	DisplayCommand* ds = new DisplayCommand(sys);
@@ -38,6 +39,7 @@ int main()
 	com->addCommand("rm", rm);
 	com->addCommand("cat", cat);
 	com->addCommand("ds", ds);
+	com->addCommand("cp", cp);
 	com->run();
 
 
