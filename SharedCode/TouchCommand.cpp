@@ -10,16 +10,55 @@ void TouchCommand::displayInfo() {
 }
 
 int TouchCommand::execute(std::string s) {
-	AbstractFile* file = filefact->createFile(s);
-	int result = success;
-	if (file != 0) {
-		result = filesys->addFile(s,file);
-		if (result != success) {
-			delete file;
+	size_t find = s.find(" ");
+	//one word
+	if (find == string::npos) {
+
+		AbstractFile* file = filefact->createFile(s);
+		int result = success;
+		if (file != 0) {
+			result = filesys->addFile(s, file);
+			if (result != success) {
+				delete file;
+			}
 		}
+		else {
+			return couldnotcreate;
+		}
+		return result;
 	}
 	else {
-		return couldnotcreate;
+		istringstream ss(s);
+		string first;
+		ss >> first;
+		string second;
+		ss >> second;
+		if (second == "-p") {
+			string pass;
+			cout << "Whats the password?" << endl;
+			cin >> pass;
+			AbstractFile* filep = filefact->createFile(first);
+			int r = success;
+			if (filep != 0) {
+				AbstractFile* p = new PasswordProxy(filep, pass);
+				r = filesys->addFile(first, p);
+				if (r != success) {
+					delete filep;
+				}
+				else {
+					return r;
+				}
+			}
+			else {
+				return couldnotcreate;
+			}
+			return r;
+		}
+		else {
+			return couldnotcreate;
+		}
+
+
+
 	}
-	return result;
 }
