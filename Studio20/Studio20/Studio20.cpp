@@ -2,10 +2,18 @@
 //
 
 #include <iostream>
+#include "../../SharedCode/PasswordProxy.h"
+#include "../../SharedCode/BasicDisplayVisitor.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	AbstractFile* a = new TextFile("test");
+	PasswordProxy* b = new PasswordProxy(a, "pass");
+	vector<char> i = { 't', 'e', 's', 't' };
+	b->write(i);
+	AbstractFileVisitor* f = new BasicDisplayVisitor();
+	b->accept(f);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
