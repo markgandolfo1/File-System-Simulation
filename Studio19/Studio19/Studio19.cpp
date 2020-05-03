@@ -3,39 +3,49 @@
 
 #include <iostream>
 #include "../../SharedCode/BasicDisplayVisitor.h"
-#include "../../SharedCode/PasswordProxy.h"
+
+#include <sstream>
+#include <string>
+
+#include "../../SharedCode/TouchCommand.h"
+#include "../../SharedCode/CommandPrompt.h"
+#include "../../SharedCode/LSCommand.h"
 
 using namespace std;
 
 int main()
 {
+	SimpleFileSystem* sys = new SimpleFileSystem();
+	SimpleFileFactory* fact = new SimpleFileFactory();
+	TouchCommand* touch = new TouchCommand(sys, fact);
+	LSCommand* ls = new LSCommand(sys);
+	CommandPrompt* com = new CommandPrompt();
+	com->setFileSystem(sys);
+	com->setFileFactory(fact);
+	com->addCommand("touch", touch);
+	com->addCommand("ls", ls);
+	com->run();
 
-	TextFile* tf = new TextFile("test");
-	vector<char> ex;
-	ex.push_back('1');
-	tf->append(ex);
-	vector<char> mod = tf->read();
-	for (int i = 0; i < mod.size(); i++) {
-		cout << mod[i] << endl;
-	}
-	mod.push_back('2');
-	tf->write(mod);
-	mod = tf->read();
-	for (int i = 0; i < mod.size(); i++) {
-		cout << mod[i] << endl;
-	}
+	//Studio 19:
+	//TextFile* tf = new TextFile("test");
+	//vector<char> ex;
+	//ex.push_back('1');
+	//tf->append(ex);
+	//vector<char> mod = tf->read();
+	//for (int i = 0; i < mod.size(); i++) {
+	//	cout << mod[i] << endl;
+	//}
+	//mod.push_back('2');
+	//tf->write(mod);
+	//mod = tf->read();
+	//for (int i = 0; i < mod.size(); i++) {
+	//	cout << mod[i] << endl;
+	//}
 
 	ImageFile* img = new ImageFile("imgtest");
 	BasicDisplayVisitor* basic = new BasicDisplayVisitor();
 	tf->accept(basic);
 	img->accept(basic);
-
-	AbstractFile* a = new TextFile("test");
-	PasswordProxy* b = new PasswordProxy(a, "pass");
-	vector<char> i = { 't', 'e', 's', 't' };
-	b->write(i);
-	AbstractFileVisitor* f = new BasicDisplayVisitor();
-	b->accept(f);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
