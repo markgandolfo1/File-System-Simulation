@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\SharedCode\ImageFile.cpp" />
     <ClCompile Include="..\..\SharedCode\LSCommand.cpp" />
     <ClCompile Include="..\..\SharedCode\MetadataDisplayVisitor.cpp" />
+    <ClCompile Include="..\..\SharedCode\RemoveCommand.cpp" />
     <ClCompile Include="..\..\SharedCode\SimpleFileFactory.cpp" />
     <ClCompile Include="..\..\SharedCode\SimpleFileSystem.cpp" />
     <ClCompile Include="..\..\SharedCode\TextFile.cpp" />

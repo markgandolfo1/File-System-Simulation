@@ -156,11 +156,14 @@
     <ClCompile Include="Studio19.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\SharedCode\AbstractCommand.h" />
     <ClInclude Include="..\..\SharedCode\AbstractFile.h" />
     <ClInclude Include="..\..\SharedCode\AbstractFileFactory.h" />
     <ClInclude Include="..\..\SharedCode\AbstractFileSystem.h" />
     <ClInclude Include="..\..\SharedCode\AbstractFileVisitor.h" />
     <ClInclude Include="..\..\SharedCode\BasicDisplayVisitor.h" />
+    <ClInclude Include="..\..\SharedCode\CommandPrompt.h" />
+    <ClInclude Include="..\..\SharedCode\CommandTest.h" />
     <ClInclude Include="..\..\SharedCode\ImageFile.h" />
     <ClInclude Include="..\..\SharedCode\MetadataDisplayVisitor.h" />
     <ClInclude Include="..\..\SharedCode\SimpleFileFactory.h" />

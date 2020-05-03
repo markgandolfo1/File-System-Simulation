@@ -1,4 +1,5 @@
 #include "LSCommand.h"
+#include "MetadataDisplayVisitor.h"
 
 LSCommand::LSCommand(AbstractFileSystem* a) {
 	filesys = a;
@@ -32,16 +33,19 @@ int LSCommand::execute(std::string s) {
 	else {
 		//-m
 		if (s == "-m") {
+			MetadataDisplayVisitor* md = new MetadataDisplayVisitor();
 			for (set<string>::iterator it = names.begin(); it != names.end(); it++) {
 				cout << *it;
 				for (int i = it->size(); i < space; i++) {
 					cout << " ";
 				}
-
-				//MetadataDisplayVisitor* md = new MetadataDisplayVisitor();
-
+				AbstractFile* af = filesys->openFile(*it);
+				filesys->closeFile(af);
+				af->accept(md);
+				delete af;
 				cout << endl;
 			}
+			delete md;
 		}
 		//command fails
 		else {

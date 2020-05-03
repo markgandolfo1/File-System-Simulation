@@ -4,8 +4,6 @@ using namespace std;
 #include "SimpleFileSystem.h"
 #include "SimpleFileFactory.h"
 
-enum spaces { space = 21 };
-
 class LSCommand : public AbstractCommand {
 private:
 	AbstractFileSystem* filesys;
