@@ -78,6 +78,9 @@
     <ClCompile Include="..\..\SharedCode\RenameParsingStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\SharedCode\TouchCatParsingStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\SharedCode\AbstractFile.h">
@@ -156,6 +159,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\SharedCode\RenameParsingStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SharedCode\TouchCatParsingStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

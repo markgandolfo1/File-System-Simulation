@@ -166,6 +166,7 @@
     <ClCompile Include="..\..\SharedCode\SimpleFileFactory.cpp" />
     <ClCompile Include="..\..\SharedCode\SimpleFileSystem.cpp" />
     <ClCompile Include="..\..\SharedCode\TextFile.cpp" />
+    <ClCompile Include="..\..\SharedCode\TouchCatParsingStrategy.cpp" />
     <ClCompile Include="..\..\SharedCode\TouchCommand.cpp" />
     <ClCompile Include="Studio19.cpp" />
   </ItemGroup>
@@ -195,6 +196,7 @@
     <ClInclude Include="..\..\SharedCode\SimpleFileFactory.h" />
     <ClInclude Include="..\..\SharedCode\SimpleFileSystem.h" />
     <ClInclude Include="..\..\SharedCode\TextFile.h" />
+    <ClInclude Include="..\..\SharedCode\TouchCatParsingStrategy.h" />
     <ClInclude Include="..\..\SharedCode\TouchCommand.h" />
   </ItemGroup>
   <ItemGroup>

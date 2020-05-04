@@ -16,6 +16,7 @@
 #include "../../SharedCode/MacroCommand.h"
 #include "../../SharedCode/CopyCommand.h"
 #include "../../SharedCode/RenameParsingStrategy.h"
+#include "../../SharedCode/TouchCatParsingStrategy.h"
 
 
 using namespace std;
@@ -37,8 +38,15 @@ int main()
 	mc->setParseStrategy(rp);
 	mc->addCommand(cp);
 	mc->addCommand(rm);
+
+	MacroCommand* tc = new MacroCommand(sys);
+	TouchCatParsingStrategy* tcp = new TouchCatParsingStrategy();
+	tc->setParseStrategy(tcp);
+	tc->addCommand(touch);
+	tc->addCommand(cat);
+
 	CommandPrompt* com = new CommandPrompt();
-	
+
 	com->setFileSystem(sys);
 	com->setFileFactory(fact);
 	com->addCommand("touch", touch);
@@ -48,6 +56,7 @@ int main()
 	com->addCommand("ds", ds);
 	com->addCommand("cp", cp);
 	com->addCommand("rn", mc);
+	com->addCommand("tc", tc);
 	com->run();
 
 
@@ -61,13 +70,13 @@ int main()
 	//tf->append(ex);
 	//vector<char> mod = tf->read();
 	//for (int i = 0; i < mod.size(); i++) {
-	//	cout << mod[i] << endl;
+	//cout << mod[i] << endl;
 	//}
 	//mod.push_back('2');
 	//tf->write(mod);
 	//mod = tf->read();
 	//for (int i = 0; i < mod.size(); i++) {
-	//	cout << mod[i] << endl;
+	//cout << mod[i] << endl;
 	//}
 
 	/*ImageFile* img = new ImageFile("imgtest");
