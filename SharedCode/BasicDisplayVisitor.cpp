@@ -14,10 +14,10 @@ void BasicDisplayVisitor::visit_TextFile(TextFile* tf) {
 }
 
 void BasicDisplayVisitor::visit_ImageFile(ImageFile* imf) {
-	unsigned int dim = sqrt(imf->getSize());
+	unsigned int dim = (int) sqrt(imf->getSize());
 	vector<char> conts = imf->read();
 
-	for (unsigned j = dim - 1; j < dim; j--) {
+	for(int j = dim - 1; j >= 0; j--) {
 		for (unsigned i = 0; i <= dim - 1; i++) {
 			int index = (j * dim) + i;
 			cout << conts[index];

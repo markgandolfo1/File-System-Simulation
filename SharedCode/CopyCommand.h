@@ -7,7 +7,7 @@
 class CopyCommand : public AbstractCommand {
 private:
 	AbstractFileSystem* filesys;
-	AbstractFileFactory* filefact;
+
 
 public:
 	CopyCommand(AbstractFileSystem*);
