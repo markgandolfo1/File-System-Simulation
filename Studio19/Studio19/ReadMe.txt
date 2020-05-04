@@ -15,7 +15,7 @@ interface, therefore preventing the class from taking on too much responsibility
 4. Delegation helps prevent one class from taking on too much responsibility by assigning duties to other classes. The visitor pattern 
 uses delegation in that it pushes off the display functionality to a separate class, AbstractVisitor, rather than forcing AbstractFile
 to be responsible for it - AbstractFile already had enough duties, and incorporating a display functionality would clutter the interface.
-Now, the codehas much been readability and functionality.
+Now, the code has much been readability and functionality.
 
 5. If we were to add a new concrete file type that should be visitable, we would have to override the accept function in the new concrete 
 file object's cpp. Additionally, we would have to add a new visit_<file_type> function for every new concrete object in the 
@@ -43,7 +43,7 @@ virtual destructor in the base class, the derived object will first be destructe
 
 3. The command prompt is very flexible and reusable because it iteracts with an abstract file system and an abstract file factory.
 Because of this, we can use different types of file systems and factories without having to change the command prompt. Had we chosen to
-have the cmmand prompt iteract with the simple file factory and the simple file system instead, it would not be nearly as flexible. Since
+have the command prompt iteract with the simple file factory and the simple file system instead, it would not be nearly as flexible. Since
 the command prompt does not know which concrete classes it is interacting with, the command prompt be easily configured.
 
 4. First, I dynamically created a simple file system, a system file factory, a touch command, and a command prompt linked the 
@@ -60,3 +60,70 @@ and was able to successfuly open the file afterwards.
 	com->setFileFactory(fact);
 	com->addCommand("touch",touch);
 	com->run();
+
+Lab 5:
+
+1. Mark Gandolfo and Julian Nussenzweig
+
+We worked on everything together over Zoom screen sharing and took turns for who would type alternating between each studio or lab5 part.
+
+We did not run into any errors or warnings. These are some of the tests we ran:
+
+1. We ran every command by passing "correct"/ideal arguments, and they all performed correctly.
+
+2. $  cat
+
+We ran the cat command with no arguments and it correctly outputted "command failed".
+
+3. $  rn
+
+We ran the rn command with no arguments and it correctly outputted "command failed".
+
+4. $  rn hi.txt yo
+
+We ran the rn command with a file that does not exist and it correctly outputted "command failed".
+
+5.  $  cp og.txt second
+	$  cat og.txt
+	sup
+	:wq
+	$  ds og.txt
+	$  ds second.txt
+
+We tested the above lines to make sure that writing to the copy does not change the original, and it correctly does not.
+
+6. $  touch false
+
+We ran the touch command and provided a file name without the extension and it correctly outputted "command failed".
+
+7. $  ds hi.img -d
+
+Correctly outputs unformatted image file
+
+8. $  ds hi.img
+
+Correctly outputs formatted image file
+
+9. $  rm no.txt
+
+Removing a file that does not exist correctly outputs command failed.
+
+10. $  touch hi.txt
+	$  touch keep.txt
+	$  rm hi.txt
+	$  rn keep.txt newkeep
+	$  ls -m
+
+This correctly adds two files, removes one, renames the one that was kept, and lists the files correcly with ls -m.
+
+Extra Credit:
+
+We added a "TouchCat" command that creates a file and allows you to edit it immediately.
+
+1. $  tc hi.txt
+
+This creates a text file called hi and lets you edit it.
+
+2. $  tc no
+
+This correctly causes the command to fail.
