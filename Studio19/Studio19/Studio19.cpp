@@ -32,7 +32,7 @@ int main()
 	RemoveCommand* rm = new RemoveCommand(sys);
 	CatCommand* cat = new CatCommand(sys);
 	DisplayCommand* ds = new DisplayCommand(sys);
-	MacroCommand* mc = new MacroCommand();
+	MacroCommand* mc = new MacroCommand(sys);
 	RenameParsingStrategy* rp = new RenameParsingStrategy();
 	mc->setParseStrategy(rp);
 	mc->addCommand(cp);

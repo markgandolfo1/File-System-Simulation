@@ -1,8 +1,8 @@
 #include "MacroCommand.h"
 
-//MacroCommand::MacroCommand(vector<AbstractCommand> a) {
-//	cmds = a;
-//}
+MacroCommand::MacroCommand(AbstractFileSystem* a) {
+	filesys = a;
+}
 
 void MacroCommand::setParseStrategy(AbstractParsingStrategy* a) {
 	aps = a;
