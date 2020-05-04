@@ -7,5 +7,5 @@ using namespace std;
 
 class AbstractParsingStrategy {
 public:
-	vector<string> parse(string);
+	virtual vector<string> parse(string) = 0;
 };
