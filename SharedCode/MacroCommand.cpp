@@ -2,6 +2,7 @@
 
 MacroCommand::MacroCommand(AbstractFileSystem* a) {
 	filesys = a;
+	aps = nullptr;
 }
 
 void MacroCommand::setParseStrategy(AbstractParsingStrategy* a) {

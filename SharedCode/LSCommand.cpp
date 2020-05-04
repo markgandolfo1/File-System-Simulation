@@ -36,7 +36,7 @@ int LSCommand::execute(std::string s) {
 			MetadataDisplayVisitor* md = new MetadataDisplayVisitor();
 			for (set<string>::iterator it = names.begin(); it != names.end(); it++) {
 				cout << *it;
-				for (int i = it->size(); i < space; i++) {
+				for (int i = (int)it->size(); i < space; i++) {
 					cout << " ";
 				}
 				AbstractFile* af = filesys->openFile(*it);
