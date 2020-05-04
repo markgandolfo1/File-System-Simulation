@@ -21,7 +21,7 @@ int MacroCommand::execute(std::string s) {
 	int i = 0;
 	for (auto cmd : cmds) {
 		int result = cmd->execute(parsed[i]);
-		if (result != 0) {
+		if (result != executed) {
 			return result;
 		}
 		i++;

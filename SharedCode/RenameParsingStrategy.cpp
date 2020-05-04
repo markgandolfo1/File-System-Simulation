@@ -3,11 +3,18 @@
 vector<string> RenameParsingStrategy::parse(string s) {
 	string first;
 	istringstream com(s);
-	com >> first;
-	string second;
-	com >> second;
-	second = first + " " + second;
 	vector<string> ret;
+	if (!(com >> first)) {
+		ret.push_back("");
+		ret.push_back("");
+		return ret;
+	}
+	string second;
+	if (!(com >> second)) {
+		ret.push_back("");
+		ret.push_back(first);
+		return ret;
+	}	second = first + " " + second;
 	ret.push_back(second);
 	ret.push_back(first);
 	return ret;

@@ -3,7 +3,7 @@
 //#include "AbstractFileVisitor.h"
 
 unsigned int ImageFile::getSize() {
-	return contents.size();
+	return (unsigned int)contents.size();
 }
 
 string ImageFile::getName() {
@@ -11,8 +11,8 @@ string ImageFile::getName() {
 }
 int ImageFile::write(std::vector<char> i) {
 	bool fail = false;
-	int x = i.size();
-	int  s = i[x-1];
+	int x = (int)i.size();
+	int  s = (int)i[(__int64)x-1];
 	s = s - 48;
 	if ((s * s) != x - 1) {
 		fail = true;

@@ -7,7 +7,7 @@ using namespace std;
 #include <iostream>
 #include <sstream>
 
-#include "AbstractCommand.h";
+#include "AbstractCommand.h"
 
 class AbstractFileSystem;
 class AbstractFileFactory;

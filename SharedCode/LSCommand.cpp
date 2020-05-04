@@ -16,7 +16,7 @@ int LSCommand::execute(std::string s) {
 		for (set<string>::iterator it = names.begin(); it != names.end(); it++) {
 			cout << *it;
 			if (counter % 2 == 0) {
-				for (int i = it->size(); i < space; i++) {
+				for (int i = (int)it->size(); i < space; i++) {
 					cout << " ";
 				}
 			}

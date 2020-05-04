@@ -13,6 +13,9 @@ void CatCommand::displayInfo() {
 int CatCommand::execute(std::string s) {
 	string space = " ";
 	size_t find = s.find(space);
+	if (s == "") {
+		return error;
+	}
 	//one word:
 	if (find == string::npos) {
 		string input = "";

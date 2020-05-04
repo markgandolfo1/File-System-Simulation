@@ -10,5 +10,8 @@ void RemoveCommand::displayInfo() {
 
 int RemoveCommand::execute(std::string s) {
 	int result = filesys->deleteFile(s);
+	if (result != executed) {
+		return error;
+	}
 	return result;
 }

@@ -8,7 +8,7 @@ vector<char> TextFile::read() {
 	//} 
 }
 unsigned int TextFile::getSize() {
-	return contents.size();
+	return (unsigned int)contents.size();
 }
 std::string TextFile::getName(){
 	return name;

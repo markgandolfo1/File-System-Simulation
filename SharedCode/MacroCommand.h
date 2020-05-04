@@ -2,8 +2,8 @@
 #include "AbstractCommand.h"
 #include <vector>
 #include <iostream>
-#include "AbstractParsingStrategy.h";
-#include "AbstractFileSystem.h";
+#include "AbstractParsingStrategy.h"
+#include "AbstractFileSystem.h"
 
 class MacroCommand : public AbstractCommand {
 private:

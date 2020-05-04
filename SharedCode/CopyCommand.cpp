@@ -13,6 +13,9 @@ void CopyCommand::displayInfo() {
 int CopyCommand::execute(std::string s) {
 	size_t find = s.find(" ");
 	//one word
+	if (s == "") {
+		return error;
+	}
 	if (find == string::npos) {
 		return couldnotcreate;
 	}
@@ -22,8 +25,7 @@ int CopyCommand::execute(std::string s) {
 		ss >> first;
 		string second;
 		ss >> second;
-		AbstractFile* f = filesys->openFile(first);
-		
+		AbstractFile* f = filesys->openFile(first);		
 		size_t pt = first.find(".");
 		string ext = first.substr(pt, pt + 3);
 		if (f != 0) {
