@@ -20,7 +20,7 @@ using namespace std;
 
 int main()
 {
-	AbstractParsingStrategy* aps = new AbstractParsingStrategy();
+	//AbstractParsingStrategy* aps = new AbstractParsingStrategy();
 
 	SimpleFileSystem* sys = new SimpleFileSystem();
 	SimpleFileFactory* fact = new SimpleFileFactory();

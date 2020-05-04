@@ -6,7 +6,7 @@
 
 class MacroCommand : public AbstractCommand {
 private:
-	vector<AbstractCommand> cmds;
+	vector<AbstractCommand*> cmds;
 	AbstractParsingStrategy* aps;
 public:
 	//MacroCommand(vector<AbstractCommand>);

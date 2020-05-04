@@ -72,10 +72,10 @@
     <ClCompile Include="..\..\SharedCode\MacroCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SharedCode\AbstractParsingStrategy.cpp">
+    <ClCompile Include="..\..\SharedCode\CopyCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SharedCode\CopyCommand.cpp">
+    <ClCompile Include="..\..\SharedCode\RenameParsingStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -153,6 +153,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\SharedCode\CopyCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SharedCode\RenameParsingStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

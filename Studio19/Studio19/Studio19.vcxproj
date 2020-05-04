@@ -147,7 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\SharedCode\AbstractParsingStrategy.cpp" />
     <ClCompile Include="..\..\SharedCode\BasicDisplayVisitor.cpp" />
     <ClCompile Include="..\..\SharedCode\CatCommand.cpp" />
     <ClCompile Include="..\..\SharedCode\CommandPrompt.cpp" />
@@ -163,6 +162,7 @@
     <ClCompile Include="..\..\SharedCode\MetadataDisplayVisitor.cpp" />
     <ClCompile Include="..\..\SharedCode\PasswordProxy.cpp" />
     <ClCompile Include="..\..\SharedCode\RemoveCommand.cpp" />
+    <ClCompile Include="..\..\SharedCode\RenameParsingStrategy.cpp" />
     <ClCompile Include="..\..\SharedCode\SimpleFileFactory.cpp" />
     <ClCompile Include="..\..\SharedCode\SimpleFileSystem.cpp" />
     <ClCompile Include="..\..\SharedCode\TextFile.cpp" />
@@ -191,6 +191,7 @@
     <ClInclude Include="..\..\SharedCode\MetadataDisplayVisitor.h" />
     <ClInclude Include="..\..\SharedCode\PasswordProxy.h" />
     <ClInclude Include="..\..\SharedCode\RemoveCommand.h" />
+    <ClInclude Include="..\..\SharedCode\RenameParsingStrategy.h" />
     <ClInclude Include="..\..\SharedCode\SimpleFileFactory.h" />
     <ClInclude Include="..\..\SharedCode\SimpleFileSystem.h" />
     <ClInclude Include="..\..\SharedCode\TextFile.h" />
