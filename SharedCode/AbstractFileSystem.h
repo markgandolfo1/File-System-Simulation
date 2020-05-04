@@ -7,7 +7,7 @@
 #include <map>
 //enums for the file systems
 enum create {created, couldnotcreate};
-//inherited 
+//each file system inherits this
 class AbstractFileSystem {
 public:
 	virtual int addFile(std::string s, AbstractFile* f) = 0;
