@@ -26,6 +26,9 @@ int CopyCommand::execute(std::string s) {
 		string second;
 		ss >> second;
 		AbstractFile* f = filesys->openFile(first);		
+		if (f == 0) {
+			return error;
+		}
 		size_t pt = first.find(".");
 		string ext = first.substr(pt, pt + 3);
 		if (f != 0) {
