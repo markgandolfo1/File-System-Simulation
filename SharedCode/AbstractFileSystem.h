@@ -5,9 +5,9 @@
 #include "AbstractFile.h"
 #include <set>
 #include <map>
-
+//enums for the file systems
 enum create {created, couldnotcreate};
-
+//inherited 
 class AbstractFileSystem {
 public:
 	virtual int addFile(std::string s, AbstractFile* f) = 0;

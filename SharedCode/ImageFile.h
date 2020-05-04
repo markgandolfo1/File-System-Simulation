@@ -1,7 +1,10 @@
+//creates class for image file that inherits abstract file. methods in class allows user to input and output image files 
+
 #pragma once
-// Image file class declaration here
+
 #include "AbstractFile.h"
 class ImageFile : public AbstractFile {
+	// include these visitors as friend classes so that they can be used in the accept function when outputting data onto cout
 	friend class BasicDisplayVisitor;
 	friend class MetadataDisplayVisitor;
 public:
@@ -18,6 +21,7 @@ public:
 	virtual AbstractFile* clone(string s);
 
 private:
+	//member variables are name of file, contents in a vector of chars, and size of file
 	string name;
 	vector<char> contents;
 	char size;
