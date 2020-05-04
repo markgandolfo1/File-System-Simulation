@@ -3,5 +3,6 @@
 #include <sstream>
 
 class RenameParsingStrategy : public AbstractParsingStrategy {
+public:
 	virtual vector<string> parse(string);
 };

@@ -458,8 +458,10 @@ public:
 	}
 	};
 	TEST_CLASS(metadataDisplayVisitor) {
+		
 public:
 	TEST_METHOD(visitTextFile) { // tests the output of the metadata display visitor for a text file, expects the filename, type and size to be included in the print statement
+		
 		std::string fileName = "FileName.txt";
 		TextFile t(fileName);
 		std::vector<char> v = { 'h', 'i' };
@@ -492,6 +494,11 @@ public:
 		cout.rdbuf(backup);
 	}
 	TEST_METHOD(visitImageFile) { // tests the output of the metadata display visitor for an image file, expects the filename, type and size to be included in the output
+		// REDIRECT COUT STREAM -- TO PROTECT AGAINST ERRORS
+		streambuf* backup_out;
+		backup_out = cout.rdbuf();
+		stringstream ss_out;
+		cout.rdbuf(ss_out.rdbuf());
 		std::string fileName = "FileName.img";
 		ImageFile t(fileName);
 		std::vector<char> v = { 'X', ' ', 'X', ' ', 'X', ' ', 'X',' ', 'X', '3' };
@@ -2037,7 +2044,7 @@ public:
 	//		bool isNotPasswordProxy = proxyCheck == nullptr;
 	//		Assert::IsFalse(isNotPasswordProxy);
 	//	}
-	};
+	//};
 	TEST_CLASS(DSCommand) {
 		TEST_METHOD(displaytext) {
 			AbstractFileSystem* sfs = new SimpleFileSystem();
