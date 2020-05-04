@@ -1,8 +1,9 @@
 #include "CopyCommand.h"
-#include "MetadataDisplayVisitor.h"
+
 
 CopyCommand::CopyCommand(AbstractFileSystem* a) {
 	filesys = a;
+	
 }
 
 void CopyCommand::displayInfo() {
@@ -10,5 +11,32 @@ void CopyCommand::displayInfo() {
 }
 
 int CopyCommand::execute(std::string s) {
-	return 0;
-}
+	size_t find = s.find(" ");
+	//one word
+	if (find == string::npos) {
+		return couldnotcreate;
+	}
+	else {
+		istringstream ss(s);
+		string first;
+		ss >> first;
+		string second;
+		ss >> second;
+		AbstractFile* f = filesys->openFile(first);
+		
+		size_t pt = first.find(".");
+		string ext = first.substr(pt, pt + 3);
+		if (f != 0) {
+			AbstractFile* copy = f->clone(second + ext);
+			filesys->closeFile(f);
+			if (filesys->addFile(second + ext, copy) == success) {
+				return success;
+			}
+			
+				
+			}
+			
+		}
+	return couldnotcreate;
+
+	}

@@ -1,9 +1,4 @@
 #pragma once
-//#ifndef _ABSTRACT_FILE_H_
-//#define _ABSTRACT_FILE_H_
-
-//code here
-
 
 // TextFile declaration goes here
 #include "AbstractFile.h"
@@ -19,6 +14,7 @@ public:
 	virtual unsigned int getSize();
 	virtual std::string getName();
 	virtual void accept(AbstractFileVisitor*);
+	virtual AbstractFile* clone(string s);
 private:
 	std::vector<char> contents;
 	std::string name;

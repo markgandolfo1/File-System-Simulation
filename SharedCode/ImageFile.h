@@ -15,6 +15,7 @@ public:
 	virtual int append(std::vector<char> i);
 	virtual vector<char> read();
 	virtual void accept(AbstractFileVisitor*);
+	virtual AbstractFile* clone(string s);
 
 private:
 	string name;

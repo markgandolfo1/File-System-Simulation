@@ -57,3 +57,8 @@ bool PasswordProxy::match(string s) {
 		return false;
 	}
 }
+AbstractFile* PasswordProxy::clone(string s) {
+	if (match(passwordPrompt())) {
+		return file->clone(s);
+	}
+}

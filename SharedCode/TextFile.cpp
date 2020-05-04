@@ -27,4 +27,11 @@ int TextFile::append(std::vector<char> i) {
 void TextFile::accept(AbstractFileVisitor* afv) {
 	(afv)->visit_TextFile(this);
 }
+AbstractFile* TextFile::clone(string s) {
+	string temp = name;
+	name = s;
+	AbstractFile* cp = new TextFile(*this);
+	name = temp;
+	return cp;
 
+}

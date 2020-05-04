@@ -16,5 +16,6 @@ public:
 	virtual unsigned int getSize() = 0;
 	virtual std::string getName() = 0;
 	virtual ~AbstractFile() = default;
+	virtual AbstractFile* clone(string s) = 0;
 };
 enum return_vals { success, exists, invalid, notopen, nonexist, open, notsupported};
