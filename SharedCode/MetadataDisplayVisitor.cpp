@@ -5,10 +5,11 @@
 using namespace std;
 
 void MetadataDisplayVisitor::visit_TextFile(TextFile* tf) {
-	//Studio:
-	//cout << tf->getName() << endl;
-	//cout << tf->getSize() << endl;
-	//cout << "text" << endl;
+	cout << tf->getName();
+	for (int i = (int)((tf->getName()).size()); i < space; i++) {
+		cout << " ";
+	}
+
 	cout << "text";
 	for (int i = 0; i < mdvspace; i++) {
 		cout << " ";
@@ -17,12 +18,13 @@ void MetadataDisplayVisitor::visit_TextFile(TextFile* tf) {
 }
 
 void MetadataDisplayVisitor::visit_ImageFile(ImageFile* imf) {
-	//Studio: to pass meta data 
-	/*cout << imf->getName() << endl;
-	cout << imf->getSize() << endl;
-	cout << "image" << endl;*/
+	cout << imf->getName();
+	for (int i = (int)((imf->getName()).size()); i < space; i++) {
+		cout << " ";
+	}
+
 	cout << "image";
-	for (int i = 0; i < mdvspace-1; i++) {
+	for (int i = 0; i < mdvspace; i++) {
 		cout << " ";
 	}
 	cout << imf->getSize();
