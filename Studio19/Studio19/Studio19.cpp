@@ -13,8 +13,10 @@
 #include "../../SharedCode/RemoveCommand.h"
 #include "../../SharedCode/CatCommand.h"
 #include "../../SharedCode/DisplayCommand.h"
-#include "../../SharedCode/AbstractParsingStrategy.h"
+#include "../../SharedCode/MacroCommand.h"
 #include "../../SharedCode/CopyCommand.h"
+#include "../../SharedCode/RenameParsingStrategy.h"
+
 
 using namespace std;
 
@@ -30,6 +32,11 @@ int main()
 	RemoveCommand* rm = new RemoveCommand(sys);
 	CatCommand* cat = new CatCommand(sys);
 	DisplayCommand* ds = new DisplayCommand(sys);
+	MacroCommand* mc = new MacroCommand();
+	RenameParsingStrategy* rp = new RenameParsingStrategy();
+	mc->setParseStrategy(rp);
+	mc->addCommand(cp);
+	mc->addCommand(rm);
 	CommandPrompt* com = new CommandPrompt();
 	
 	com->setFileSystem(sys);
@@ -40,6 +47,7 @@ int main()
 	com->addCommand("cat", cat);
 	com->addCommand("ds", ds);
 	com->addCommand("cp", cp);
+	com->addCommand("rn", mc);
 	com->run();
 
 

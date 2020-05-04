@@ -16,6 +16,8 @@
 #include "../../SharedCode/TouchCommand.cpp"
 #include "../../SharedCode/RemoveCommand.cpp"
 #include "../../SharedCode/CopyCommand.cpp"
+#include "../../SharedCode/RenameParsingStrategy.cpp"
+#include "../../SharedCode/MacroCommand.cpp"
 
 #undef protected
 
@@ -1834,22 +1836,22 @@ public:
 			cin.rdbuf(backup_in);
 		}
 	};
-	//TEST_CLASS(renameCommand) {
-	//	TEST_METHOD(renameParsingStrategy) { // checks parse function of RenameParsingStrategy correctly converts input string into a vector of strings representing instructions for copy and remove commands
-	//		// REDIRECT COUT STREAM -- PROTECT AGAINST ERRORS
-	//		streambuf* backup_out;
-	//		backup_out = cout.rdbuf();
-	//		stringstream ss_out;
-	//		cout.rdbuf(ss_out.rdbuf());
-	//		// SETUP INPUT AND TEST OUTPUT
-	//		RenameParsingStrategy* rps = new RenameParsingStrategy();
-	//		vector<string> parsed = rps->parse("file.txt renamedFile");
-	//		Assert::AreEqual(parsed.size(), static_cast<size_t>(2));
-	//		string expectedCopyInstructions = "file.txt renamedFile";
-	//		string expectedRemoveInstructions = "file.txt";
-	//		Assert::AreEqual(parsed[0], expectedCopyInstructions);
-	//		Assert::AreEqual(parsed[1], expectedRemoveInstructions);
-	//	}
+	TEST_CLASS(renameCommand) {
+		TEST_METHOD(renameParsingStrategy) { // checks parse function of RenameParsingStrategy correctly converts input string into a vector of strings representing instructions for copy and remove commands
+			// REDIRECT COUT STREAM -- PROTECT AGAINST ERRORS
+			streambuf* backup_out;
+			backup_out = cout.rdbuf();
+			stringstream ss_out;
+			cout.rdbuf(ss_out.rdbuf());
+			// SETUP INPUT AND TEST OUTPUT
+			RenameParsingStrategy* rps = new RenameParsingStrategy();
+			vector<string> parsed = rps->parse("file.txt renamedFile");
+			Assert::AreEqual(parsed.size(), static_cast<size_t>(2));
+			string expectedCopyInstructions = "file.txt renamedFile";
+			string expectedRemoveInstructions = "file.txt";
+			Assert::AreEqual(parsed[0], expectedCopyInstructions);
+			Assert::AreEqual(parsed[1], expectedRemoveInstructions);
+		}
 	//	TEST_METHOD(renameValid) {
 	//		// REDIRECT COUT STREAM -- PROTECT AGAINST ERRORS
 	//		streambuf* backup_out;
@@ -2035,7 +2037,7 @@ public:
 	//		bool isNotPasswordProxy = proxyCheck == nullptr;
 	//		Assert::IsFalse(isNotPasswordProxy);
 	//	}
-	//};
+	};
 	TEST_CLASS(DSCommand) {
 		TEST_METHOD(displaytext) {
 			AbstractFileSystem* sfs = new SimpleFileSystem();
