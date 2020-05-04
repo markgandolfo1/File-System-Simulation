@@ -1836,22 +1836,22 @@ public:
 			cin.rdbuf(backup_in);
 		}
 	};
-	TEST_CLASS(renameCommand) {
-		TEST_METHOD(renameParsingStrategy) { // checks parse function of RenameParsingStrategy correctly converts input string into a vector of strings representing instructions for copy and remove commands
-			// REDIRECT COUT STREAM -- PROTECT AGAINST ERRORS
-			streambuf* backup_out;
-			backup_out = cout.rdbuf();
-			stringstream ss_out;
-			cout.rdbuf(ss_out.rdbuf());
-			// SETUP INPUT AND TEST OUTPUT
-			RenameParsingStrategy* rps = new RenameParsingStrategy();
-			vector<string> parsed = rps->parse("file.txt renamedFile");
-			Assert::AreEqual(parsed.size(), static_cast<size_t>(2));
-			string expectedCopyInstructions = "file.txt renamedFile";
-			string expectedRemoveInstructions = "file.txt";
-			Assert::AreEqual(parsed[0], expectedCopyInstructions);
-			Assert::AreEqual(parsed[1], expectedRemoveInstructions);
-		}
+	//TEST_CLASS(renameCommand) {
+	//	TEST_METHOD(renameParsingStrategy) { // checks parse function of RenameParsingStrategy correctly converts input string into a vector of strings representing instructions for copy and remove commands
+	//		// REDIRECT COUT STREAM -- PROTECT AGAINST ERRORS
+	//		streambuf* backup_out;
+	//		backup_out = cout.rdbuf();
+	//		stringstream ss_out;
+	//		cout.rdbuf(ss_out.rdbuf());
+	//		// SETUP INPUT AND TEST OUTPUT
+	//		RenameParsingStrategy* rps = new RenameParsingStrategy();
+	//		vector<string> parsed = rps->parse("file.txt renamedFile");
+	//		Assert::AreEqual(parsed.size(), static_cast<size_t>(2));
+	//		string expectedCopyInstructions = "file.txt renamedFile";
+	//		string expectedRemoveInstructions = "file.txt";
+	//		Assert::AreEqual(parsed[0], expectedCopyInstructions);
+	//		Assert::AreEqual(parsed[1], expectedRemoveInstructions);
+	//	}
 	//	TEST_METHOD(renameValid) {
 	//		// REDIRECT COUT STREAM -- PROTECT AGAINST ERRORS
 	//		streambuf* backup_out;
@@ -2233,49 +2233,49 @@ public:
 			vector<char> after_invalid = f->read();
 			Assert::AreEqual(after_invalid.size(), original.size());
 		}
-		//TEST_METHOD(copypasswordprotected) {
-		//	AbstractFileSystem* sfs = new SimpleFileSystem();
-		//	AbstractFileFactory* sff = new SimpleFileFactory();
+		TEST_METHOD(copypasswordprotected) {
+			AbstractFileSystem* sfs = new SimpleFileSystem();
+			AbstractFileFactory* sff = new SimpleFileFactory();
 
-		//	// REDIRECT COUT STREAM
-		//	streambuf* backup_out;
-		//	backup_out = cout.rdbuf();
-		//	stringstream ss_out;
-		//	cout.rdbuf(ss_out.rdbuf());
+			// REDIRECT COUT STREAM
+			streambuf* backup_out;
+			backup_out = cout.rdbuf();
+			stringstream ss_out;
+			cout.rdbuf(ss_out.rdbuf());
 
-		//	string filename = "file.txt";
-		//	AbstractFile* realfile = sff->createFile(filename);
-		//	vector<char> original = { 'h','i' };
-		//	realfile->write(original);
-		//	string pw = "easypassword";
-		//	AbstractFile* proxy_toreal = new PasswordProxy(realfile, pw);
-		//	Assert::AreEqual(sfs->addFile(proxy_toreal->getName(), proxy_toreal), 0);
-		//	AbstractCommand* cp = new CopyCommand(sfs);
-		//	string copyname = "copy.txt";
-		//	Assert::AreEqual(cp->execute(filename + " copy"), 0);
-		//	AbstractFile* proxy_copy = sfs->openFile(copyname);
-		//	bool isNull = proxy_copy == nullptr;
-		//	Assert::IsFalse(isNull);
-		//	PasswordProxy* proxy_tocopy = dynamic_cast<PasswordProxy*>(proxy_copy);
-		//	isNull = proxy_tocopy == nullptr;
-		//	Assert::IsFalse(isNull);
-		//	bool sameProxy = proxy_tocopy == proxy_toreal;
-		//	Assert::IsFalse(sameProxy);
-		//	// REDIRECT CIN STREAM
-		//	streambuf* backup_in;
-		//	backup_in = cin.rdbuf();
-		//	stringstream ss_in;
-		//	cin.rdbuf(ss_in.rdbuf());
-		//	// MIMIC USER INPUT
-		//	ss_in << pw << '\n';
-		//	vector<char> newdata = { 'h','e','l','l','o' };
-		//	Assert::AreEqual(proxy_tocopy->write(newdata), 0);
-		//	auto v = realfile->read();
-		//	Assert::AreEqual(v.size(), original.size());
-		//	for (size_t i = 0; i < v.size(); ++i) {
-		//		Assert::AreEqual(v[i], original[i]);
-		//	}
-		//}
+			string filename = "file.txt";
+			AbstractFile* realfile = sff->createFile(filename);
+			vector<char> original = { 'h','i' };
+			realfile->write(original);
+			string pw = "easypassword";
+			AbstractFile* proxy_toreal = new PasswordProxy(realfile, pw);
+			Assert::AreEqual(sfs->addFile(proxy_toreal->getName(), proxy_toreal), 0);
+			AbstractCommand* cp = new CopyCommand(sfs);
+			string copyname = "copy.txt";
+			Assert::AreEqual(cp->execute(filename + " copy"), 0);
+			AbstractFile* proxy_copy = sfs->openFile(copyname);
+			bool isNull = proxy_copy == nullptr;
+			Assert::IsFalse(isNull);
+			PasswordProxy* proxy_tocopy = dynamic_cast<PasswordProxy*>(proxy_copy);
+			isNull = proxy_tocopy == nullptr;
+			Assert::IsFalse(isNull);
+			bool sameProxy = proxy_tocopy == proxy_toreal;
+			Assert::IsFalse(sameProxy);
+			// REDIRECT CIN STREAM
+			streambuf* backup_in;
+			backup_in = cin.rdbuf();
+			stringstream ss_in;
+			cin.rdbuf(ss_in.rdbuf());
+			// MIMIC USER INPUT
+			ss_in << pw << '\n';
+			vector<char> newdata = { 'h','e','l','l','o' };
+			Assert::AreEqual(proxy_tocopy->write(newdata), 0);
+			auto v = realfile->read();
+			Assert::AreEqual(v.size(), original.size());
+			for (size_t i = 0; i < v.size(); ++i) {
+				Assert::AreEqual(v[i], original[i]);
+			}
+		}
 	};
 	
 }
