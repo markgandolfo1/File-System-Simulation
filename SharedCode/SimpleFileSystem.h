@@ -8,9 +8,13 @@
 using namespace std;
 class SimpleFileSystem : public AbstractFileSystem {
 public:
+	//adds file to system
 	virtual int addFile(string s, AbstractFile* f);
+	//adds to set of open files
 	virtual AbstractFile* openFile(std::string s);
+	//removes from set
 	virtual int closeFile(AbstractFile* f);
+	//deletes from map
 	virtual int deleteFile(std::string s);
 	virtual std::set<string> getFileNames();
 private:
