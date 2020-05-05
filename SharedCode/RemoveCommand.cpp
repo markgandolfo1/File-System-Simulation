@@ -1,3 +1,5 @@
+//responsible for defining remove command methods
+
 #include "RemoveCommand.h"
 
 RemoveCommand::RemoveCommand(AbstractFileSystem* a){
@@ -9,7 +11,9 @@ void RemoveCommand::displayInfo() {
 }
 
 int RemoveCommand::execute(std::string s) {
+	//deletes file:
 	int result = filesys->deleteFile(s);
+	//checks to make sure it has actually been deleted:
 	if (result != executed) {
 		return error;
 	}

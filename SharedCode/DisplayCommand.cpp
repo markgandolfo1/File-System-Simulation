@@ -1,3 +1,5 @@
+//responsible for defining DisplayCommand methods
+
 #include "DisplayCommand.h"
 
 DisplayCommand::DisplayCommand(AbstractFileSystem* a) {
@@ -28,6 +30,8 @@ int DisplayCommand::execute(std::string s) {
 	
 
 	}
+
+	//possibly wants to do -d
 	else {
 		istringstream ss(s);
 		string first;
@@ -45,6 +49,7 @@ int DisplayCommand::execute(std::string s) {
 				filesys->closeFile(f);
 				return success;
 			}
+			//invalid: -d was not second argument
 			else {
 				return couldnotcreate;
 			}

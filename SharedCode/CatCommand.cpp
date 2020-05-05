@@ -1,3 +1,5 @@
+//responsible for definitions of cat command methods
+
 #include "CatCommand.h"
 #include <sstream>
 #include <vector>
@@ -44,6 +46,7 @@ int CatCommand::execute(std::string s) {
 		}
 	}
 
+	//possibly wants to do -a
 	else {
 		istringstream com(s);
 		string first;

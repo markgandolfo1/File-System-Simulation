@@ -1,3 +1,5 @@
+//responsible for defining LSCommand methods
+
 #include "LSCommand.h"
 #include "MetadataDisplayVisitor.h"
 
@@ -15,6 +17,7 @@ int LSCommand::execute(std::string s) {
 		int counter = 0;
 		for (set<string>::iterator it = names.begin(); it != names.end(); it++) {
 			cout << *it;
+			//shouldalternate printing position every other time (%2)
 			if (counter % 2 == 0) {
 				for (int i = (int)it->size(); i < space; i++) {
 					cout << " ";
@@ -23,6 +26,7 @@ int LSCommand::execute(std::string s) {
 			else {
 				cout << endl;
 			}
+			//keeps track of column
 			counter++;
 		}
 		if (counter % 2 != 0) {
@@ -35,10 +39,6 @@ int LSCommand::execute(std::string s) {
 		if (s == "-m") {
 			MetadataDisplayVisitor* md = new MetadataDisplayVisitor();
 			for (set<string>::iterator it = names.begin(); it != names.end(); it++) {
-				//cout << *it;
-				//for (int i = (int)it->size(); i < space; i++) {
-				//	cout << " ";
-				//}
 				AbstractFile* af = filesys->openFile(*it);
 				filesys->closeFile(af);
 				af->accept(md);

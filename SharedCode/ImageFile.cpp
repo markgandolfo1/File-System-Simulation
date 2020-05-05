@@ -1,6 +1,5 @@
 // definition of ImageFile class here
 #include "ImageFile.h"
-//#include "AbstractFileVisitor.h"
 
 unsigned int ImageFile::getSize() {
 	return (unsigned int)contents.size();
@@ -18,6 +17,7 @@ int ImageFile::write(std::vector<char> i) {
 		fail = true;
 	}
 	size = s;
+	//iterates through the size to update the contents
 	for (int k = 0; k < x - 1; ++k) {
 		contents.push_back(i[k]);
 		if ((i[k] != 'X') && (i[k] != ' ')) {
@@ -42,18 +42,9 @@ int ImageFile::append(std::vector<char> i) {
 
 vector<char> ImageFile::read() {
 	return contents;
-	//int dim = size;
-	//for (unsigned j = dim - 1; j < dim; j--) {
-	//	//unsigned int will go to highest value if passed 0.
-	//	for (unsigned i = 0; i <= dim - 1; i++) {
-	//		int index = (j * dim) + i;
-
-	//		cout << contents[index];
-	//	}
-	//	cout << " " << endl;
-	//}
 }
 
+//allows visitors
 void ImageFile::accept(AbstractFileVisitor* afv) {
 	(afv)->visit_ImageFile(this);
 }

@@ -1,3 +1,5 @@
+//responsible for defining CopyCommand methods
+
 #include "CopyCommand.h"
 
 
@@ -25,7 +27,8 @@ int CopyCommand::execute(std::string s) {
 		ss >> first;
 		string second;
 		ss >> second;
-		AbstractFile* f = filesys->openFile(first);		
+		AbstractFile* f = filesys->openFile(first);	
+		//file can't be opened:
 		if (f == 0) {
 			return error;
 		}

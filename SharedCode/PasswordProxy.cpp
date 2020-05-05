@@ -1,3 +1,5 @@
+//responsible for defining methods for the passwords
+
 #include "PasswordProxy.h"
 
 string PasswordProxy::passwordPrompt() {
@@ -6,6 +8,8 @@ string PasswordProxy::passwordPrompt() {
 	getline(cin, i);
 	return i;
 }
+
+//destructor
 PasswordProxy::~PasswordProxy() {
 	delete file;
 
@@ -29,6 +33,7 @@ int PasswordProxy::write(vector<char> i) {
 	}
 }
 int PasswordProxy::append(std::vector<char> i) {
+	//if passwords match:
 	if (match(passwordPrompt())) {
 		return file->append(i);
 	}
@@ -44,6 +49,8 @@ unsigned PasswordProxy::getSize() {
 string PasswordProxy::getName() {
 	return file->getName();
 }
+
+//allows visitors
 void PasswordProxy::accept(AbstractFileVisitor* i) {
 	if (match(passwordPrompt())) {
 		return file->accept(i);
@@ -58,9 +65,6 @@ bool PasswordProxy::match(string s) {
 	}
 }
 AbstractFile* PasswordProxy::clone(string s) {
-	//if (match(passwordPrompt())) {
 		AbstractFile* i = file->clone(s);
-
 		return new PasswordProxy(i, pass);
-	//}
 }

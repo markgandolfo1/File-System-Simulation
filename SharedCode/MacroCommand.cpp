@@ -1,3 +1,5 @@
+//responsible for defining MacroCommand methods
+
 #include "MacroCommand.h"
 
 MacroCommand::MacroCommand(AbstractFileSystem* a) {
@@ -18,8 +20,10 @@ void MacroCommand::displayInfo() {
 }
 
 int MacroCommand::execute(std::string s) {
+	//gets parsed commands
 	vector<string> parsed = aps->parse(s);
 	int i = 0;
+	//iterates through the commands and executes on the parsed strings
 	for (auto cmd : cmds) {
 		int result = cmd->execute(parsed[i]);
 		if (result != executed) {

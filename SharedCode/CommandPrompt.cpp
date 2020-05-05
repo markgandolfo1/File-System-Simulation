@@ -1,3 +1,5 @@
+//responsible for defining CommandPrompt methods
+
 #include "CommandPrompt.h"
 
 CommandPrompt::CommandPrompt() {
@@ -28,6 +30,7 @@ void CommandPrompt::listCommands() {
 	}
 }
 
+//prompts user for input command
 string CommandPrompt::prompt() {
 	cout << "Enter a command, 'q' to quit, 'help' to see a list of commands, or 'help' preceding a the name of a command for a description of that command" << endl;
 	cout << "$  ";
