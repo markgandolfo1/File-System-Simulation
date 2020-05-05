@@ -35,10 +35,10 @@ int LSCommand::execute(std::string s) {
 		if (s == "-m") {
 			MetadataDisplayVisitor* md = new MetadataDisplayVisitor();
 			for (set<string>::iterator it = names.begin(); it != names.end(); it++) {
-				cout << *it;
-				for (int i = (int)it->size(); i < space; i++) {
-					cout << " ";
-				}
+				//cout << *it;
+				//for (int i = (int)it->size(); i < space; i++) {
+				//	cout << " ";
+				//}
 				AbstractFile* af = filesys->openFile(*it);
 				filesys->closeFile(af);
 				af->accept(md);
