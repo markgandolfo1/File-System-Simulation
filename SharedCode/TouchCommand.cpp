@@ -1,10 +1,11 @@
+//defines functions for the touch command
 #include "TouchCommand.h"
-
+//constructor
 TouchCommand::TouchCommand(AbstractFileSystem* a, AbstractFileFactory* b) {
 	filesys = a;
 	filefact = b;
 }
-
+//usage message
 void TouchCommand::displayInfo() {
 	cout << "touch is responsible for creating a file and can be invoked using this command: touch <filename>" << endl;
 }
@@ -28,6 +29,7 @@ int TouchCommand::execute(std::string s) {
 		return result;
 	}
 	else {
+		//for passowrd protected files
 		istringstream ss(s);
 		string first;
 		ss >> first;
@@ -35,6 +37,7 @@ int TouchCommand::execute(std::string s) {
 		ss >> second;
 		if (second == "-p") {
 			string pass;
+			//asks for password
 			cout << "Whats the password?" << endl;
 			getline(cin, pass);
 			AbstractFile* filep = filefact->createFile(first);

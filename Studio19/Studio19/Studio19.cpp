@@ -23,10 +23,11 @@ using namespace std;
 
 int main()
 {
-	//AbstractParsingStrategy* aps = new AbstractParsingStrategy();
-
+	
+	
 	SimpleFileSystem* sys = new SimpleFileSystem();
 	SimpleFileFactory* fact = new SimpleFileFactory();
+	//creates new commands
 	TouchCommand* touch = new TouchCommand(sys, fact);
 	LSCommand* ls = new LSCommand(sys);
 	CopyCommand* cp = new CopyCommand(sys);
@@ -49,6 +50,7 @@ int main()
 
 	com->setFileSystem(sys);
 	com->setFileFactory(fact);
+	//adds commands to the command prompt
 	com->addCommand("touch", touch);
 	com->addCommand("ls", ls);
 	com->addCommand("rm", rm);
@@ -57,6 +59,7 @@ int main()
 	com->addCommand("cp", cp);
 	com->addCommand("rn", mc);
 	com->addCommand("tc", tc);
+	//runs the command prompt
 	com->run();
 
 	//Studio 19:
